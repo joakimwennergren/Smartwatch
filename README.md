@@ -3,8 +3,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/joakimwennergren/EntropyEngine">
-    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/smartwatch.jpg" alt="Logo" width="240" height="240">
+  <a href="https://github.com/joakimwennergren/Smartwatch">
+    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/smartwatch.jpg" alt="Logo" width="280" height="280">
   </a>
 <h3>Smartwatch</h3>
 
@@ -32,9 +32,13 @@ The smartwatch will support core functions such as precise timekeeping, step cou
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
+<!-- Information -->
 
-## Contributing
+## Information
+
+<img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/arm.jpeg" alt="Logo" width="280" height="280">
+
+<img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/pcb.jpeg" alt="Logo" width="280" height="280">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
