@@ -16,3 +16,169 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\joaki\i
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-08-10 10:19:25.625
 !MESSAGE Indexed 'STM32U575CIU6Q_firmware' (22 sources, 81 headers) in 12.2 sec: 6,891 declarations; 36,897 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0046%)
+
+!ENTRY org.eclipse.jface 2 0 2025-08-10 14:36:32.845
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2025-08-10 14:36:32.847
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.cdt.ui.navigate.opentype"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.cdt.ui.navigate.opentype"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2025-08-10 14:36:32.847
+!MESSAGE A conflict occurred for CTRL+SHIFT+H:
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.cdt.ui.navigate.open.type.in.hierarchy"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.cdt.ui.navigate.open.type.in.hierarchy"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 14:38:31.449
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Release/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 14:38:31.464
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Release/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 14:38:31.469
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Release/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 14:38:31.475
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Debug/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 14:38:31.479
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Debug/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 14:38:31.484
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Debug/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY org.eclipse.core.resources 4 2 2025-08-10 14:38:43.374
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/STM32U575CIU6Q_firmware/Debug/Drivers/lvgl/tests/makefile)[368]: java.lang.Exception: Resource '/STM32U575CIU6Q_firmware/Debug/Drivers/lvgl/tests/makefile' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:244)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:231)
+	at com.st.stm32cube.ide.mcu.toolchain.armnone.oss.makefile.MakefileGenerator.generateDependencies(MakefileGenerator.java:630)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performPostbuildGeneration(CommonBuilder.java:878)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:790)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:530)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:471)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:595)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:491)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:288)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2025-08-10 14:38:43.408
+!MESSAGE Resource '/STM32U575CIU6Q_firmware/Debug/Drivers/lvgl/tests/makefile' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/STM32U575CIU6Q_firmware/Debug/Drivers/lvgl/tests/makefile' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:244)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:231)
+	at com.st.stm32cube.ide.mcu.toolchain.armnone.oss.makefile.MakefileGenerator.generateDependencies(MakefileGenerator.java:630)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performPostbuildGeneration(CommonBuilder.java:878)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:790)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:530)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:471)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:595)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:491)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:288)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2025-08-10 14:38:43.409
+!MESSAGE Resource '/STM32U575CIU6Q_firmware/Debug/Drivers/lvgl/tests/makefile' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/STM32U575CIU6Q_firmware/Debug/Drivers/lvgl/tests/makefile' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:244)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:231)
+	at com.st.stm32cube.ide.mcu.toolchain.armnone.oss.makefile.MakefileGenerator.generateDependencies(MakefileGenerator.java:630)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performPostbuildGeneration(CommonBuilder.java:878)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:790)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:530)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:471)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:595)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:491)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:288)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 15:39:01.934
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Release/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 15:39:01.941
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Release/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 15:39:01.944
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Release/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 15:39:01.947
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Debug/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 15:39:01.950
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Debug/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2025-08-10 15:39:01.954
+!MESSAGE Failed to check relative, returning possibly relative path: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Debug/"" literal was "${workspace_loc:/${ProjName}/Drivers/lvgl-9.3.0}"

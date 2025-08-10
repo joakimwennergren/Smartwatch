@@ -1118,3 +1118,1089 @@
 2025-08-10 10:38:48,323 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 2644mS.
 2025-08-10 10:38:48,324 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
 2025-08-10 10:38:48,334 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-08-10 13:05:02,009 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-08-10 13:17:44,302 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 13:17:44,304 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 868296256 Bytes (1073741824)
+2025-08-10 13:17:46,004 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 13:17:46,005 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 896085568 Bytes (1073741824)
+2025-08-10 13:17:46,695 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 13:17:46,696 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 592455840 Bytes (1073741824)
+2025-08-10 13:17:51,208 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: PWR
+2025-08-10 13:17:51,208 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-08-10 13:17:51,208 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-FREERTOS.1.3.1
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: OCTOSPI
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAM
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA2D
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ICACHE
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-08-10 13:17:51,209 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAMQUEUE
+2025-08-10 13:17:51,215 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,216 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,216 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,217 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,217 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,217 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,217 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,217 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:51,223 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-08-10 13:17:51,457 [INFO] IP:3347 - RTE template : freertos_start.ftl
+2025-08-10 13:17:51,480 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp_save
+2025-08-10 13:17:52,012 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp
+2025-08-10 13:17:52,142 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp_save
+2025-08-10 13:17:52,347 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp
+2025-08-10 13:17:52,689 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-08-10 13:17:52,691 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-08-10 13:17:53,180 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 13:17:53,202 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 13:17:53,340 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 13:17:53,352 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 13:17:53,474 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 13:17:53,487 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 13:17:53,590 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 13:17:53,601 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 13:17:53,704 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 13:17:53,714 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 13:17:53,809 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 13:17:53,819 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 13:17:53,921 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 13:17:53,932 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 13:17:54,042 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 13:17:54,059 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 13:17:54,166 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 13:17:54,181 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 13:17:54,205 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 13:17:54,299 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 13:17:54,313 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 13:17:54,399 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 13:17:54,416 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 13:17:54,522 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 13:17:54,535 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 13:17:54,644 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 13:17:54,659 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 13:17:54,751 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 13:17:54,766 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 13:17:54,856 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 13:17:54,867 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 13:17:54,933 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 13:17:54,942 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 13:17:55,013 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 13:17:55,026 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h_save
+2025-08-10 13:17:55,140 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h
+2025-08-10 13:17:55,155 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c_save
+2025-08-10 13:17:55,268 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c
+2025-08-10 13:17:55,282 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h_save
+2025-08-10 13:17:55,391 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h
+2025-08-10 13:17:55,418 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp_save
+2025-08-10 13:17:55,529 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp
+2025-08-10 13:17:55,596 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c_save
+2025-08-10 13:17:55,836 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c
+2025-08-10 13:17:55,851 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h_save
+2025-08-10 13:17:55,935 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h
+2025-08-10 13:17:56,017 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c_save
+2025-08-10 13:17:56,178 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c
+2025-08-10 13:17:56,189 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp_save
+2025-08-10 13:17:56,267 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp
+2025-08-10 13:17:56,286 [INFO] CodeEngine:321 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h_save
+2025-08-10 13:17:56,377 [INFO] CodeEngine:345 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h
+2025-08-10 13:17:56,429 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h_save
+2025-08-10 13:17:56,540 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h
+2025-08-10 13:17:56,555 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c_save
+2025-08-10 13:17:56,712 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c
+2025-08-10 13:17:58,432 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 1310mS.
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,433 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,434 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,435 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,437 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,438 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,439 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,440 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:17:58,441 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:58,441 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:58,441 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:58,442 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:58,442 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:58,442 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:58,442 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:58,442 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:17:59,075 [INFO] ProjectBuilder:9437 - Time for Copy ThirdParty[1] : 629mS.
+2025-08-10 13:17:59,082 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-08-10 13:17:59,193 [INFO] ConfigFileManager:1595 - The Die is : DIE482
+2025-08-10 13:18:02,131 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 3049mS.
+2025-08-10 13:18:02,133 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-08-10 13:18:02,152 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-08-10 13:54:38,364 [WARN] IP:2250 - PLL3_VCI_Range not found: check if there is a RefParameter without a condition.
+2025-08-10 13:54:38,437 [WARN] IP:2250 - PLL2SourceARG not found: check if there is a RefParameter without a condition.
+2025-08-10 13:54:38,635 [WARN] IP:2250 - GPIO_AF not found: check if there is a RefParameter without a condition.
+2025-08-10 13:54:38,636 [WARN] IP:2250 - GPIOx not found: check if there is a RefParameter without a condition.
+2025-08-10 13:54:38,637 [WARN] IP:2250 - GPIO_Pin not found: check if there is a RefParameter without a condition.
+2025-08-10 13:54:38,637 [WARN] IP:2250 - PinAttribute not found: check if there is a RefParameter without a condition.
+2025-08-10 13:54:38,639 [WARN] IP:2250 - GPIO_AF not found: check if there is a RefParameter without a condition.
+2025-08-10 13:54:39,254 [INFO] I2cTimingTraitement:330 - 0x00000E14
+2025-08-10 13:57:39,595 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 13:57:39,595 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 630714200 Bytes (1073741824)
+2025-08-10 13:57:41,215 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 13:57:41,216 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 638576472 Bytes (1073741824)
+2025-08-10 13:57:45,732 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 13:57:45,733 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 791668568 Bytes (1073741824)
+2025-08-10 13:57:49,949 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: PWR
+2025-08-10 13:57:49,951 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-08-10 13:57:49,951 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-08-10 13:57:49,952 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-08-10 13:57:49,953 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-FREERTOS.1.3.1
+2025-08-10 13:57:49,953 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: OCTOSPI
+2025-08-10 13:57:49,953 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-08-10 13:57:49,953 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-08-10 13:57:49,954 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAM
+2025-08-10 13:57:49,954 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-08-10 13:57:49,955 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA2D
+2025-08-10 13:57:49,956 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ICACHE
+2025-08-10 13:57:49,957 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-08-10 13:57:49,958 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAMQUEUE
+2025-08-10 13:57:49,964 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,964 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,964 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,968 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,968 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,969 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,970 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,971 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:57:49,983 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-08-10 13:57:50,328 [INFO] IP:3347 - RTE template : freertos_start.ftl
+2025-08-10 13:57:50,351 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp_save
+2025-08-10 13:57:50,864 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp
+2025-08-10 13:57:51,013 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp_save
+2025-08-10 13:57:51,234 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp
+2025-08-10 13:57:51,676 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-08-10 13:57:51,678 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-08-10 13:57:52,313 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 13:57:52,335 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 13:57:52,498 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 13:57:52,511 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 13:57:52,679 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 13:57:52,692 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 13:57:52,840 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 13:57:52,854 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 13:57:52,998 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 13:57:53,009 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 13:57:53,144 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 13:57:53,155 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 13:57:53,298 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 13:57:53,310 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 13:57:53,452 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 13:57:53,464 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 13:57:53,610 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 13:57:53,622 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 13:57:53,642 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 13:57:53,774 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 13:57:53,791 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 13:57:53,918 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 13:57:53,938 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 13:57:54,054 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 13:57:54,070 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 13:57:54,179 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 13:57:54,196 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 13:57:54,308 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 13:57:54,325 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 13:57:54,430 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 13:57:54,447 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 13:57:54,558 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 13:57:54,574 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 13:57:54,684 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 13:57:54,701 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h_save
+2025-08-10 13:57:54,858 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h
+2025-08-10 13:57:54,874 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c_save
+2025-08-10 13:57:55,010 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c
+2025-08-10 13:57:55,028 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h_save
+2025-08-10 13:57:55,147 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h
+2025-08-10 13:57:55,177 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp_save
+2025-08-10 13:57:55,300 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp
+2025-08-10 13:57:55,368 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c_save
+2025-08-10 13:57:55,671 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c
+2025-08-10 13:57:55,688 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h_save
+2025-08-10 13:57:55,792 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h
+2025-08-10 13:57:55,920 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c_save
+2025-08-10 13:57:56,197 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c
+2025-08-10 13:57:56,574 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp_save
+2025-08-10 13:57:56,645 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp
+2025-08-10 13:57:56,666 [INFO] CodeEngine:321 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h_save
+2025-08-10 13:57:56,748 [INFO] CodeEngine:345 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h
+2025-08-10 13:57:56,813 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h_save
+2025-08-10 13:57:56,929 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h
+2025-08-10 13:57:56,940 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c_save
+2025-08-10 13:57:57,128 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c
+2025-08-10 13:58:06,317 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 8451mS.
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,318 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,319 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,320 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,321 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,322 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,322 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,322 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,323 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,325 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,325 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,325 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,325 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,325 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,325 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,325 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,326 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,326 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,326 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,326 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,326 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,327 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,327 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,328 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,328 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,328 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,328 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,328 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,328 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,329 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,330 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,331 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,332 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,333 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,334 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,335 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:06,336 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:07,234 [INFO] ProjectBuilder:9437 - Time for Copy ThirdParty[1] : 893mS.
+2025-08-10 13:58:07,246 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-08-10 13:58:07,361 [INFO] ConfigFileManager:1595 - The Die is : DIE482
+2025-08-10 13:58:09,552 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 2308mS.
+2025-08-10 13:58:09,553 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-08-10 13:58:09,568 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-08-10 13:58:39,889 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 13:58:39,890 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 582674712 Bytes (1073741824)
+2025-08-10 13:58:42,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: PWR
+2025-08-10 13:58:42,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-08-10 13:58:42,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-08-10 13:58:42,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-08-10 13:58:42,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-FREERTOS.1.3.1
+2025-08-10 13:58:42,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: OCTOSPI
+2025-08-10 13:58:42,914 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-08-10 13:58:42,914 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-08-10 13:58:42,914 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAM
+2025-08-10 13:58:42,914 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-08-10 13:58:42,914 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA2D
+2025-08-10 13:58:42,914 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ICACHE
+2025-08-10 13:58:42,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-08-10 13:58:42,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAMQUEUE
+2025-08-10 13:58:42,920 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,920 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,920 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,921 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,921 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,923 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,923 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,924 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:42,931 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-08-10 13:58:43,175 [INFO] IP:3347 - RTE template : freertos_start.ftl
+2025-08-10 13:58:43,191 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp_save
+2025-08-10 13:58:43,278 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp
+2025-08-10 13:58:43,352 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp_save
+2025-08-10 13:58:43,441 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp
+2025-08-10 13:58:43,665 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-08-10 13:58:43,665 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-08-10 13:58:44,049 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 13:58:44,064 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 13:58:44,163 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 13:58:44,174 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 13:58:44,252 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 13:58:44,260 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 13:58:44,334 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 13:58:44,341 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 13:58:44,412 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 13:58:44,419 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 13:58:44,492 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 13:58:44,500 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 13:58:44,576 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 13:58:44,584 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 13:58:44,659 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 13:58:44,666 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 13:58:44,735 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 13:58:44,975 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 13:58:44,987 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 13:58:45,056 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 13:58:45,066 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 13:58:45,142 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 13:58:45,155 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 13:58:45,232 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 13:58:45,246 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 13:58:45,323 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 13:58:45,335 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 13:58:45,417 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 13:58:45,429 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 13:58:45,505 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 13:58:45,516 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 13:58:45,592 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 13:58:45,604 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 13:58:45,676 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 13:58:45,687 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h_save
+2025-08-10 13:58:45,784 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h
+2025-08-10 13:58:45,795 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c_save
+2025-08-10 13:58:45,885 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c
+2025-08-10 13:58:45,897 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h_save
+2025-08-10 13:58:45,979 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h
+2025-08-10 13:58:45,995 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp_save
+2025-08-10 13:58:46,066 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp
+2025-08-10 13:58:46,112 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c_save
+2025-08-10 13:58:46,195 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c
+2025-08-10 13:58:46,203 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h_save
+2025-08-10 13:58:46,283 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h
+2025-08-10 13:58:46,365 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c_save
+2025-08-10 13:58:46,485 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c
+2025-08-10 13:58:46,493 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp_save
+2025-08-10 13:58:46,564 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp
+2025-08-10 13:58:46,585 [INFO] CodeEngine:321 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h_save
+2025-08-10 13:58:46,667 [INFO] CodeEngine:345 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h
+2025-08-10 13:58:46,716 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h_save
+2025-08-10 13:58:46,803 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h
+2025-08-10 13:58:46,814 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c_save
+2025-08-10 13:58:46,965 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c
+2025-08-10 13:58:47,751 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 469mS.
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,752 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,753 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,754 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,755 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,756 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,756 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,756 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,756 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,756 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,757 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,758 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,759 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 13:58:47,760 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,760 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,761 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,762 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,762 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,762 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,762 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,762 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 13:58:47,945 [INFO] ProjectBuilder:9437 - Time for Copy ThirdParty[1] : 177mS.
+2025-08-10 13:58:47,951 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-08-10 13:58:48,069 [INFO] ConfigFileManager:1595 - The Die is : DIE482
+2025-08-10 13:58:50,135 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 2182mS.
+2025-08-10 13:58:50,137 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-08-10 13:58:50,155 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-08-10 14:04:19,415 [INFO] RtosManager:803 -  ==== DEBUG ==== Saving {key/value} = {rtos.0.tasks.0/allocationType,Dynamic;bufferName,NULL;codeGen,Default;controlBlockName,NULL;entry,StartDefaultTask;name,defaultTask;parameter,NULL;priority,osPriorityNormal;stackSize,128}
+2025-08-10 14:04:19,416 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 672430720 Bytes (1073741824)
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: PWR
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-FREERTOS.1.3.1
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: OCTOSPI
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-08-10 14:04:22,353 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAM
+2025-08-10 14:04:22,355 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-08-10 14:04:22,355 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA2D
+2025-08-10 14:04:22,355 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ICACHE
+2025-08-10 14:04:22,355 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-08-10 14:04:22,355 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: LPBAMQUEUE
+2025-08-10 14:04:22,359 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,359 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,359 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,360 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,360 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,360 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,360 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,360 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:04:22,366 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-08-10 14:04:22,606 [INFO] IP:3347 - RTE template : freertos_start.ftl
+2025-08-10 14:04:22,620 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp_save
+2025-08-10 14:04:22,701 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\license.tmp
+2025-08-10 14:04:22,767 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp_save
+2025-08-10 14:04:22,854 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\gpio.tmp
+2025-08-10 14:04:23,085 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-08-10 14:04:23,086 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-08-10 14:04:23,409 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 14:04:23,420 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 14:04:23,496 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 14:04:23,504 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 14:04:23,583 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 14:04:23,591 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 14:04:23,658 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 14:04:23,664 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 14:04:23,729 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 14:04:23,736 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 14:04:23,804 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 14:04:23,812 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 14:04:23,885 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 14:04:23,893 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 14:04:23,964 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 14:04:23,973 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 14:04:24,048 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 14:04:24,055 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-08-10 14:04:24,069 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp_save
+2025-08-10 14:04:24,139 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_obj_creat.tmp
+2025-08-10 14:04:24,151 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp_save
+2025-08-10 14:04:24,227 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_typedefs.tmp
+2025-08-10 14:04:24,238 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp_save
+2025-08-10 14:04:24,319 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_vars.tmp
+2025-08-10 14:04:24,328 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp_save
+2025-08-10 14:04:24,399 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_threads.tmp
+2025-08-10 14:04:24,410 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp_save
+2025-08-10 14:04:24,482 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_inc.tmp
+2025-08-10 14:04:24,492 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp_save
+2025-08-10 14:04:24,571 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_pfp.tmp
+2025-08-10 14:04:24,583 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp_save
+2025-08-10 14:04:24,653 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelInit.tmp
+2025-08-10 14:04:24,664 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp_save
+2025-08-10 14:04:24,735 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\rtos_kernelStart.tmp
+2025-08-10 14:04:24,744 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h_save
+2025-08-10 14:04:24,831 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\FreeRTOSConfig.h
+2025-08-10 14:04:24,842 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c_save
+2025-08-10 14:04:24,931 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\app_freertos.c
+2025-08-10 14:04:24,942 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h_save
+2025-08-10 14:04:25,018 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\app_freertos.h
+2025-08-10 14:04:25,034 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp_save
+2025-08-10 14:04:25,102 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\cortex.tmp
+2025-08-10 14:04:25,139 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c_save
+2025-08-10 14:04:25,219 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_it.c
+2025-08-10 14:04:25,228 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h_save
+2025-08-10 14:04:25,300 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_it.h
+2025-08-10 14:04:25,366 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c_save
+2025-08-10 14:04:25,478 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\stm32u5xx_hal_msp.c
+2025-08-10 14:04:25,487 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp_save
+2025-08-10 14:04:25,590 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\MXTmpFiles\system.tmp
+2025-08-10 14:04:25,611 [INFO] CodeEngine:321 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h_save
+2025-08-10 14:04:25,697 [INFO] CodeEngine:345 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\stm32u5xx_hal_conf.h
+2025-08-10 14:04:25,741 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h_save
+2025-08-10 14:04:25,818 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Inc\main.h
+2025-08-10 14:04:25,829 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c_save
+2025-08-10 14:04:25,979 [INFO] CodeEngine:289 - Generated code: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\STM32U575CIU6Q_firmware\Core\Src\main.c
+2025-08-10 14:05:06,154 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 39826mS.
+2025-08-10 14:05:06,154 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,154 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,154 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,154 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,154 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,155 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,156 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,157 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,158 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,159 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,160 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,161 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,162 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,163 [ERROR] Middleware:2950 - Invalid RefComponent list
+2025-08-10 14:05:06,164 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:06,164 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:06,164 [WARN] ThirdPartyIpManager:480 - Condition 'CM33 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:06,165 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:06,165 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:06,165 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 IAR Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:06,165 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:06,165 [WARN] ThirdPartyIpManager:480 - Condition 'CM0 GNU ARMC6 Condition' not fulfilled in pack 'STMicroelectronics.X-CUBE-FREERTOS.1.3.1'
+2025-08-10 14:05:16,528 [INFO] ProjectBuilder:9437 - Time for Copy ThirdParty[1] : 10359mS.
+2025-08-10 14:05:16,532 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-08-10 14:05:16,635 [INFO] ConfigFileManager:1595 - The Die is : DIE482
+2025-08-10 14:05:18,222 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1690mS.
+2025-08-10 14:05:18,223 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-08-10 14:05:18,240 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-08-10 16:08:18,797 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 

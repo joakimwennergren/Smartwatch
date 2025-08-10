@@ -1,9 +1,0 @@
-/*
- * display.cpp
- *
- *  Created on: Aug 10, 2025
- *      Author: Joakim Wennergren
- */
-#include "display.hpp"
-
-Display::Display(OSPI_HandleTypeDef hospi) : hospi_{hospi} {}
