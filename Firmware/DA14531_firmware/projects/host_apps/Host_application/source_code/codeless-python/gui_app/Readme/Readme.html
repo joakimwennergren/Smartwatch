@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Codeless Host Application &#8212; Codeless Host Application 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="https://s3.amazonaws.com/lpccsdocs/includes/iframeResizer.contentWindow.min.js"></script>
+    <script src="_static/jquery-ui.min.js"></script>
+    <script src="_static/myscript.js"></script>
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="#">Codeless Host Application 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="codeless-host-application">
+<h1>Codeless Host Application<a class="headerlink" href="#codeless-host-application" title="Permalink to this headline">¶</a></h1>
+<p>codeless_host_app is a graphic user interface application, written in python, to send commands to the connected Codeless device.
+The user is able to:</p>
+<ul>
+<li><p>connect or disconnect to the serial port of the Codeless device,</p></li>
+<li><p>send AT commands and see their output,</p></li>
+<li><p>enter, exit and resume binary mode easily. If the remote device, which is connected with the Codeless device, sends AT+BINREQ, local device automatically responds with AT+BINREQACK. If the remote device sends AT+BINREQEXIT, then the local device exits automatically binary mode using sequence of AT and AT+BNREQEXITACK commands,</p></li>
+<li><p>send a file (text or binary) while the device operates in binary mode,</p></li>
+<li><p>keep a log file of any received file from the remote host (SAVE LOG button)</p></li>
+<li><p>keep a log file of all the commands that are sent to the local device (under current folder &lt;timestamp&gt;_console.log)</p></li>
+<li><dl>
+<dt>send a batch file, containing a set of AT commands with a new line separated, –&gt; is the indication of input command, &lt;– is the indication of the command reply, OK or ERROR is the default terminating strings and anything in between is for validation that the command is executed with the correct parameters</dt><dd><p>eg.:</p>
+<blockquote>
+<div><p>–&gt; AT+GAPSTATUS</p>
+<p>&lt;– AT+GAPSTATUS</p>
+<p>0,0</p>
+<p>OK</p>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+<li><p>stop the executed batch file, if any command responds with an error,</p></li>
+<li><p>be notified by an indication that the binary mode is on (blue color) and off (yellow led),</p></li>
+<li><p>reconnect or change any of the serial’s port parameters without pressing Disconnect option from the menu.</p></li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pyhton">
+<h2>Pyhton<a class="headerlink" href="#pyhton" title="Permalink to this headline">¶</a></h2>
+<p>Required version is Python 2.7.15</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Download the Python installer from <a class="reference external" href="https://www.python.org/ftp/python/2.7.15/python-2.7.15.amd64.msi">Python 2.7.15</a></p></li>
+<li><p>Add Python to PATH</p></li>
+</ol>
+</div>
+<div class="section" id="pyinstaller">
+<h2>PyInstaller<a class="headerlink" href="#pyinstaller" title="Permalink to this headline">¶</a></h2>
+<p>PyInstaller freezes (packages) Python applications into stand-alone executables.</p>
+</div>
+<div class="section" id="id1">
+<h2>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">`pip</span> <span class="pre">install</span> <span class="pre">PyInstaller==3.6`</span></code></p></li>
+<li><p>Rename pyinstaller.exe to pyinstaller2.7.exe</p></li>
+</ol>
+</div>
+<div class="section" id="create-the-executable-under-current-folder">
+<h2>Create the executable under current folder<a class="headerlink" href="#create-the-executable-under-current-folder" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Open any command prompt.</p></li>
+<li><p>Navigate to the codeless-pytohn folder.</p></li>
+<li><p>Execute following command to generate the .exe file</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`pyinstaller27.exe</span> <span class="pre">-n</span> <span class="pre">codeless_host</span> <span class="pre">--onefile</span> <span class="pre">gui_app\codeless_host_app.py</span> <span class="pre">--windowed</span> <span class="pre">-i</span> <span class="pre">gui_app\Dialog_D-Symbol_Color_RGB_Small_icon.ico</span> <span class="pre">--add-data</span> <span class="pre">&quot;gui_app\Dialog_D-Symbol_Color_RGB_Small_icon.ico;.&quot;</span> <span class="pre">--hidden-import</span> <span class="pre">pygatt</span> <span class="pre">--distpath</span> <span class="pre">gui_app\`</span></code></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/dslogoBlueSmall.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Codeless Host Application</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li><a class="reference internal" href="#pyhton">Pyhton</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#pyinstaller">PyInstaller</a></li>
+<li><a class="reference internal" href="#id1">Installation</a></li>
+<li><a class="reference internal" href="#create-the-executable-under-current-folder">Create the executable under current folder</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="#">Codeless Host Application 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Dialog Semiconductor.
+    </div>
+  </body>
+</html>

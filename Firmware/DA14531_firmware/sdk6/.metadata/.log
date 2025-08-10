@@ -1,0 +1,43 @@
+!SESSION 2025-08-09 20:21:45.759 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=13.0.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  ï»¿-startup plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar -pluginCustomization C:/DiaSemi/SmartSnippetsStudio2.0.20/CDT/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 ï»¿-startup plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar -pluginCustomization C:/DiaSemi/SmartSnippetsStudio2.0.20/CDT/plugin_customization.ini
+
+!ENTRY org.python.pydev.shared_core 1 1 2025-08-09 20:22:07.340
+!MESSAGE Restoring info for: C:\DiaSemi\SmartSnippetsStudio2.0.20\Python35\python.exe
+!STACK 0
+java.lang.RuntimeException: Restoring info for: C:\DiaSemi\SmartSnippetsStudio2.0.20\Python35\python.exe
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.getInterpretersFromPersistedString(AbstractInterpreterManager.java:461)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.internalRecreateCacheGetInterpreterInfos(AbstractInterpreterManager.java:287)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.setInfos(AbstractInterpreterManager.java:584)
+	at com.dialog.eclipse.product_plugin.StartupActions.createPythonInterpreter(StartupActions.java:1155)
+	at com.dialog.eclipse.product_plugin.StartupActions.earlyStartup(StartupActions.java:319)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:79)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:55)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2667)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.IOException: Expecting: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\DA14531_firmware\sdk6\.metadata\.plugins\org.python.pydev\v1_5f9qxj6t4ffkc08nbzf9lum7t\modulesKeys to exist (and be a file).
+	at org.python.pydev.ast.codecompletion.revisited.ModulesManager.loadFromFile(ModulesManager.java:330)
+	at org.python.pydev.ast.codecompletion.revisited.SystemModulesManager.load(SystemModulesManager.java:443)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.getInterpretersFromPersistedString(AbstractInterpreterManager.java:459)
+	... 9 more
+
+!ENTRY org.python.pydev.shared_core 1 1 2025-08-09 20:22:09.277
+!MESSAGE Finished restoring information for: C:\DiaSemi\SmartSnippetsStudio2.0.20\Python35\python.exe at: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\DA14531_firmware\sdk6\.metadata\.plugins\org.python.pydev\v1_5f9qxj6t4ffkc08nbzf9lum7t
+!STACK 0
+java.lang.RuntimeException: Finished restoring information for: C:\DiaSemi\SmartSnippetsStudio2.0.20\Python35\python.exe at: C:\Users\joaki\iCloudDrive\Projekt\Smartwatch\Firmware\DA14531_firmware\sdk6\.metadata\.plugins\org.python.pydev\v1_5f9qxj6t4ffkc08nbzf9lum7t
+	at org.python.pydev.core.log.Log.logInfo(Log.java:45)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.getInterpretersFromPersistedString(AbstractInterpreterManager.java:506)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.internalRecreateCacheGetInterpreterInfos(AbstractInterpreterManager.java:287)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.setInfos(AbstractInterpreterManager.java:584)
+	at com.dialog.eclipse.product_plugin.StartupActions.createPythonInterpreter(StartupActions.java:1155)
+	at com.dialog.eclipse.product_plugin.StartupActions.earlyStartup(StartupActions.java:319)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:79)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:55)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2667)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

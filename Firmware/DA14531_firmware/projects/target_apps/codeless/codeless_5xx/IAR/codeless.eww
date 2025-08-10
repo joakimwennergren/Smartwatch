@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspace>
+    <project>
+        <path>$WS_DIR$\codeless.ewp</path>
+    </project>
+    <batchBuild>
+        <batchDefinition>
+            <name>codeless</name>
+            <member>
+                <project>codeless</project>
+                <configuration>codeless_585</configuration>
+            </member>
+            <member>
+                <project>codeless</project>
+                <configuration>codeless_586</configuration>
+            </member>
+            <member>
+                <project>codeless</project>
+                <configuration>codeless_531_datapump</configuration>
+            </member>
+            <member>
+                <project>codeless</project>
+                <configuration>codeless_531_standalone</configuration>
+            </member>
+            <member>
+                <project>codeless</project>
+                <configuration>codeless_531_set_two_standalone</configuration>
+            </member>
+            <member>
+                <project>codeless</project>
+                <configuration>codeless_531_01_datapump</configuration>
+            </member>
+            <member>
+                <project>codeless</project>
+                <configuration>codeless_535</configuration>
+            </member>
+        </batchDefinition>
+    </batchBuild>
+</workspace>

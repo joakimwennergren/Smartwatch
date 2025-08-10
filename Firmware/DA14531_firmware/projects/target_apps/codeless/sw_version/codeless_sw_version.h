@@ -1,0 +1,3 @@
+#define SW_VERSION          "v_6.380.20.66"
+#define SW_VERSION_DATE     "2025-01-27 16:00 "
+#define SW_VERSION_STATUS   "REPOSITORY VERSION"
