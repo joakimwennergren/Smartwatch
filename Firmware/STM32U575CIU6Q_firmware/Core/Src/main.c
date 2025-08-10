@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "display.h"
+#include "lvgl.h"
+#include "ui.h"
 
 /* USER CODE END Includes */
 
@@ -114,6 +116,14 @@ int main(void)
 
   // Memory mapped mode
   CO5300_EnterMemoryMapped(hospi1);
+
+  // Initialize LVGL
+  lv_init();
+  display_g = lv_display_create(PANEL_WIDTH, PANEL_HEIGHT);
+  lv_display_set_flush_cb(display_g, lvgl_flush_cb);
+  lv_display_set_buffers(display_g, frame_buffer, NULL, sizeof(frame_buffer), LV_DISPLAY_RENDER_MODE_DIRECT);
+  create_lvgl_tick_task();
+  create_lvgl_timer_task();
 
   /* USER CODE END 2 */
 

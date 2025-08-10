@@ -1,0 +1,65 @@
+/*
+ * ui.c
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: joakimwennergren
+ */
+#include "ui.h"
+
+lv_display_t *display_g = NULL;
+TaskHandle_t lvgl_tick_handle_g = NULL;
+TaskHandle_t lvgl_timer_handle_g = NULL;
+
+void lvgl_flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map) {
+
+  int height = area->y2 - area->y1 + 1;
+  int width = area->x2 - area->x1 + 1;
+
+  memcpy(frame_buffer, px_map, width * height * 2);
+  CO5300_WriteFrameRGB565();
+
+  lv_display_flush_ready(display);
+}
+
+/* LVGL timer for tasks. */
+void lvgl_timer(void* argument) {
+  for(;;)
+  {
+    lv_timer_handler();
+    vTaskDelay(pdMS_TO_TICKS(20));
+  }
+}
+
+/* LVGL tick source */
+void lvgl_tick(void* argument) {
+  for(;;)
+  {
+    lv_tick_inc(10);
+    vTaskDelay(pdMS_TO_TICKS(10));
+  }
+}
+
+void create_lvgl_tick_task(void) {
+    xTaskCreate(
+        lvgl_tick,              // Task function
+        "lvgl_tick",           // Name (for debugging)
+        1024,                  // Stack size (words, not bytes)
+        NULL,                  // Task parameter
+        tskIDLE_PRIORITY + 1,  // Priority
+        &lvgl_tick_handle_g       // Handle to the task
+    );
+}
+
+void create_lvgl_timer_task(void) {
+    xTaskCreate(
+        lvgl_timer,              // Task function
+        "lvgl_timer",           // Name (for debugging)
+        1024,                  // Stack size (words, not bytes)
+        NULL,                  // Task parameter
+        tskIDLE_PRIORITY + 1,  // Priority
+        &lvgl_timer_handle_g       // Handle to the task
+    );
+}
+
+
+

@@ -1,0 +1,74 @@
+/*
+ * ui.c
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: joakimwennergren
+ */
+#include "ui.h"
+
+lv_display_t *display_g = NULL;
+TaskHandle_t lvgl_tick_handle_g = NULL;
+TaskHandle_t lvgl_timer_handle_g = NULL;
+
+void lvgl_flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map) {
+
+    int width  = area->x2 - area->x1 + 1;
+    int height = area->y2 - area->y1 + 1;
+
+    // Copy the area into the correct spot in your framebuffer
+    for (int y = 0; y < height; y++) {
+        memcpy(
+            &frame_buffer[(area->y1 + y) * PANEL_WIDTH * 2 + area->x1 * 2], // offset in bytes
+            &px_map[y * width * 2],
+            width * 2
+        );
+    }
+
+    // Send the whole framebuffer or just the area
+    CO5300_WriteFrameRGB565();
+
+    lv_display_flush_ready(display);
+}
+
+/* LVGL timer for tasks. */
+void lvgl_timer(void* argument) {
+  for(;;)
+  {
+    lv_timer_handler();
+    vTaskDelay(pdMS_TO_TICKS(20));
+  }
+}
+
+/* LVGL tick source */
+void lvgl_tick(void* argument) {
+  for(;;)
+  {
+    lv_tick_inc(10);
+    vTaskDelay(pdMS_TO_TICKS(10));
+  }
+}
+
+void create_lvgl_tick_task(void) {
+    xTaskCreate(
+        lvgl_tick,
+        "lvgl_tick",
+        64,
+        NULL,
+        tskIDLE_PRIORITY + 1,
+        &lvgl_tick_handle_g
+    );
+}
+
+void create_lvgl_timer_task(void) {
+    xTaskCreate(
+        lvgl_timer,
+        "lvgl_timer",
+        64,
+        NULL,
+        tskIDLE_PRIORITY + 1,
+        &lvgl_timer_handle_g
+    );
+}
+
+
+

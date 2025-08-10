@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="mem"/>
 		<item value="fs"/>
 		<item value="fatfs"/>
 		<item value="font"/>

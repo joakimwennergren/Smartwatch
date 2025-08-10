@@ -1,0 +1,24 @@
+/*
+ * ui.h
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: joakimwennergren
+ */
+
+#ifndef INC_UI_H_
+#define INC_UI_H_
+
+#include "lvgl.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+extern lv_display_t *display_g;
+//Thread Handles
+extern osThreadId lvgl_tickHandle;
+extern osThreadId lvgl_timerHandle;
+
+
+void lvgl_flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map);
+
+
+#endif /* INC_UI_H_ */

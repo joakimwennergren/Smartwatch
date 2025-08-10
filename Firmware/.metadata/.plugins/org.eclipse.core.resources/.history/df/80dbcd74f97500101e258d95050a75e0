@@ -1,0 +1,48 @@
+/*
+ * ui.h
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: joakimwennergren
+ */
+
+#ifndef INC_UI_H_
+#define INC_UI_H_
+
+#include "lvgl.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+extern lv_display_t *display_g;
+
+//Thread Handles
+extern TaskHandle_t lvgl_tick_handle_g;
+extern TaskHandle_t lvgl_timer_handle_g;
+
+void lvgl_flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map);
+
+void create_lvgl_tick_task(void)
+{
+    xTaskCreate(
+        LVGLTick,              // Task function
+        "lvgl_tick",           // Name (for debugging)
+        1024,                  // Stack size (words, not bytes)
+        NULL,                  // Task parameter
+        tskIDLE_PRIORITY + 1,  // Priority
+        &lvgl_timer_handle_g       // Handle to the task
+    );
+}
+
+void create_lvgl_tick_task(void)
+{
+    xTaskCreate(
+        LVGLTick,              // Task function
+        "lvgl_tick",           // Name (for debugging)
+        1024,                  // Stack size (words, not bytes)
+        NULL,                  // Task parameter
+        tskIDLE_PRIORITY + 1,  // Priority
+        &lvgl_timer_handle_g       // Handle to the task
+    );
+}
+
+
+#endif /* INC_UI_H_ */
