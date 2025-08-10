@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/joakimwennergren/Smartwatch">
-    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/smartwatch.jpg" alt="Logo" width="280" height="280">
+    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/arm.jpeg" alt="Logo" width="320" height="320">
   </a>
 <h3>Smartwatch</h3>
 
@@ -29,16 +29,6 @@ Integrated IMU (Inertial Measurement Unit) for accurate motion tracking.
 Bluetooth Low Energy 5.2 connectivity for reliable, energy-efficient communication.
 
 The smartwatch will support core functions such as precise timekeeping, step counting, and additional health and activity monitoring features. With its combination of advanced hardware and efficient real-time software, this device aims to deliver a smooth user experience while maintaining low power consumption for extended battery life.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- Information -->
-
-## Information
-
-<img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/arm.jpeg" alt="Logo" width="280" height="280">
-
-<img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/pcb.jpeg" alt="Logo" width="280" height="280">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
