@@ -1,0 +1,28 @@
+/*
+ * display.hpp
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: Joakim Wennergren
+ */
+
+#ifndef INC_DISPLAY_HPP_
+#define INC_DISPLAY_HPP_
+
+#include "main.h"
+
+// Adjust if your MCU maps QSPI memory to a different address
+#define QSPI_MEM_BASE        0x90000000UL
+
+// Panel geometry / pixel format (RGB565 => 2 bytes per pixel)
+#define PANEL_WIDTH          368
+#define PANEL_HEIGHT         448
+#define PIXEL_BYTES          2
+#define FRAMEBUFFER_SIZE     (PANEL_WIDTH * PANEL_HEIGHT * PIXEL_BYTES)
+
+class Display
+{
+public:
+	Display(OSPI_HandleTypeDef hospi);
+};
+
+#endif /* INC_DISPLAY_HPP_ */

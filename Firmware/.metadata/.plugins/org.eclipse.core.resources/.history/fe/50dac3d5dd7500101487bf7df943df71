@@ -1,0 +1,126 @@
+/*
+ * display.cpp
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: Joakim Wennergren
+ */
+#include "display.hpp"
+#include <cstring>
+
+Display::Display(OSPI_HandleTypeDef hospi) : hospi_{hospi} {}
+
+HAL_StatusTypeDef Display::CO5300_QSPI_WriteCmd(uint8_t cmd, const uint8_t *params, uint32_t param_len) {
+	OSPI_RegularCmdTypeDef sCommand;
+    HAL_StatusTypeDef status;
+
+    memset(&sCommand, 0, sizeof(sCommand));
+
+    sCommand.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
+    sCommand.Instruction       = 0x02; // "Write" instruction per datasheet
+    sCommand.AddressMode       = HAL_OSPI_ADDRESS_1_LINE;
+    sCommand.AddressSize       = HAL_OSPI_ADDRESS_24_BITS;
+    // Address layout: 0x00 CMD 0x00 -> so shift cmd into the middle byte
+    sCommand.Address           = ((uint32_t)cmd << 8); // 0x00 CMD 0x00
+    sCommand.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
+    sCommand.DummyCycles       = 0;
+    sCommand.DataMode          = (param_len > 0) ? HAL_OSPI_DATA_1_LINE : HAL_OSPI_DATA_NONE;
+    sCommand.NbData            = param_len;
+    sCommand.SIOOMode          = HAL_OSPI_SIOO_INST_EVERY_CMD;
+
+    status = HAL_OSPI_Command(&hospi_, &sCommand, HAL_MAX_DELAY);
+    if (status != HAL_OK) return status;
+
+    if (param_len > 0) {
+        status = HAL_OSPI_Transmit(&hospi_, (uint8_t *)params, HAL_MAX_DELAY);
+    }
+    return status;
+}
+
+HAL_StatusTypeDef Display::CO5300_SendInitSequence(void) {
+    HAL_StatusTypeDef st;
+    uint8_t buf[4];
+
+    // RFE 00
+    buf[0] = 0x00; st = CO5300_QSPI_WriteCmd(0xFE, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // RC4 80 -- command 0xC4, param 0x80
+    buf[0] = 0x80; st = CO5300_QSPI_WriteCmd(0xC4, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R3A 55 -- COLMOD -> RGB565
+    buf[0] = 0x55; st = CO5300_QSPI_WriteCmd(0x3A, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R35 00
+    buf[0] = 0x00; st = CO5300_QSPI_WriteCmd(0x35, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R53 20
+    buf[0] = 0x20; st = CO5300_QSPI_WriteCmd(0x53, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R51 FF (brightness)
+    buf[0] = 0xFF; st = CO5300_QSPI_WriteCmd(0x51, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R63 FF
+    buf[0] = 0xFF; st = CO5300_QSPI_WriteCmd(0x63, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R2A 00 10 01 7F -- column: SC=0x0010, SE=0x017F
+    buf[0] = 0x00; buf[1] = 0x10; buf[2] = 0x01; buf[3] = 0x7F;
+    st = CO5300_QSPI_WriteCmd(0x2A, buf, 4);
+    if (st != HAL_OK) return st;
+
+    // R2B 00 00 01 BF -- row: SP=0x0000, EP=0x01BF
+    buf[0] = 0x00; buf[1] = 0x00; buf[2] = 0x01; buf[3] = 0xBF;
+    st = CO5300_QSPI_WriteCmd(0x2B, buf, 4);
+    if (st != HAL_OK) return st;
+
+    // R11 Sleep Out
+    st = CO5300_QSPI_WriteCmd(0x11, NULL, 0);
+    if (st != HAL_OK) return st;
+    HAL_Delay(60);
+
+    // R29 Display ON
+    st = CO5300_QSPI_WriteCmd(0x29, NULL, 0);
+    return st;
+}
+
+HAL_StatusTypeDef Display::CO5300_EnterMemoryMapped(void)
+{
+    HAL_StatusTypeDef status;
+    OSPI_MemoryMappedTypeDef sCommand;
+    OSPI_MemoryMappedTypeDef memMappedCfg;
+
+    memset(&sCommand, 0, sizeof(sCommand));
+    memset(&memMappedCfg, 0, sizeof(memMappedCfg));
+
+    /* Build command for 4-line pixel write:
+       Instruction = 0x32 (4-wire pixel write, 24-bit address)
+       For memory-mapped writes HAL expects:
+         - InstructionMode: 1-line (we still send instruction in 1-line)
+         - AddressMode: QSPI_ADDRESS_4_LINES
+         - DataMode: QSPI_DATA_4_LINES
+    */
+    sCommand.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
+    sCommand.Instruction       = 0x32; // CO5300 4-wire pixel write (datasheet)
+    sCommand.AddressMode       = HAL_OSPI_ADDRESS_4_LINES;
+    sCommand.AddressSize       = HAL_OSPI_ADDRESS_24_BITS;
+    sCommand.Address           = 0x002C00; // according to datasheet addr: 0x00 0x2C 0x00 -> center byte is RAMWR(0x2C)
+    sCommand.DataMode          = HAL_OSPI_DATA_4_LINES;
+    sCommand.DummyCycles       = 0;
+    sCommand.SIOOMode          = HAL_OSPI_SIOO_INST_EVERY_CMD;
+
+    /* Memory-mapped config:
+       - TimeoutActivation = QSPI_TIMEOUT_COUNTER_DISABLE for continuous write or enable with value if needed
+       - TimeoutPeriod unused when disabled.
+    */
+    memMappedCfg.TimeOutActivation = HAL_OSPI_TIMEOUT_COUNTER_DISABLE;
+    memMappedCfg.TimeOutPeriod = 0;
+
+    status = HAL_OSPI_MemoryMapped(&hospi_, &sCommand, &memMappedCfg);
+    return status;
+}
+

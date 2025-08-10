@@ -1,0 +1,44 @@
+/*
+ * display.hpp
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: Joakim Wennergren
+ */
+
+#ifndef INC_DISPLAY_H_
+#define INC_DISPLAY_H_
+
+#include "main.h"
+
+// Adjust if your MCU maps QSPI memory to a different address
+#define QSPI_MEM_BASE        0x90000000UL
+
+// Panel geometry / pixel format (RGB565 => 2 bytes per pixel)
+#define PANEL_WIDTH          368
+#define PANEL_HEIGHT         448
+#define PIXEL_BYTES          2
+#define FRAMEBUFFER_SIZE     (PANEL_WIDTH * PANEL_HEIGHT * PIXEL_BYTES)
+
+// --- Low-level QSPI write command helper (1-line command/address/data) ---
+// This sends instruction=0x02 with 24-bit address (0x00 CMD 0x00) and then data bytes.
+HAL_StatusTypeDef CO5300_QSPI_WriteCmd(OSPI_HandleTypeDef hospi, uint8_t cmd, const uint8_t *params, uint32_t param_len);
+
+// --- Send the supplier init sequence
+HAL_StatusTypeDef CO5300_SendInitSequence(OSPI_HandleTypeDef hospi);
+
+// --- Enter memory-mapped mode for pixel writes (4-line data) ---
+HAL_StatusTypeDef CO5300_EnterMemoryMapped(OSPI_HandleTypeDef hospi);
+
+// Write framebuffer sync/async
+void CO5300_WriteFrameRGB565(const uint8_t *frame_rgb565);
+void CO5300_WriteFrameRGB565_DMA2D(const uint8_t *frame_rgb565, uint32_t width, uint32_t height);
+
+// OSPI handle
+OSPI_HandleTypeDef hospi_;
+
+// DMA2D handle
+DMA2D_HandleTypeDef hdma2d_;
+
+};
+
+#endif /* INC_DISPLAY_H_ */

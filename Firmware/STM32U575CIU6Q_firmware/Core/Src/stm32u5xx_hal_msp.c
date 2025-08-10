@@ -220,7 +220,7 @@ void HAL_OSPI_MspInit(OSPI_HandleTypeDef* hospi)
   /** Initializes the peripherals clock
   */
     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_OSPI;
-    PeriphClkInit.OspiClockSelection = RCC_OSPICLKSOURCE_SYSCLK;
+    PeriphClkInit.OspiClockSelection = RCC_OSPICLKSOURCE_PLL1;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
       Error_Handler();
