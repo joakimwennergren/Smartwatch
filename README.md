@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/joakimwennergren/EntropyEngine">
-    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/smartwatch.jpeg" alt="Logo" width="240" height="240">
+    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/smartwatch.jpg" alt="Logo" width="240" height="240">
   </a>
 <h3>Smartwatch</h3>
 
