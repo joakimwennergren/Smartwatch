@@ -10,6 +10,18 @@
 
 #include "main.h"
 
+// CST820 7-bit I2C address (shifted left by 1 for HAL)
+#define CST820_I2C_ADDR  (0x15 << 1)
+// Register 	Address	Name			Description
+// --------     ------------            ------------------------------------------------------
+// 0x00			Device ID				Returns device ID or chip version
+// 0x01			Gesture Status			Shows gesture events detected
+// 0x02			Touch Status			Indicates which electrodes are touched
+// 0x03			Sensor Data				Raw or processed sensor data
+// 0x04			Control Register		Control bits for enabling/disabling touch, reset, etc.
+// 0x05			Interrupt Status		Interrupt flags
+// 0x06 - 0x0F	Calibration / Config	Calibration values and configuration parameters
+
 // Adjust if your MCU maps QSPI memory to a different address
 #define QSPI_MEM_BASE        0x90000000UL
 
@@ -37,6 +49,5 @@ HAL_StatusTypeDef CO5300_EnterMemoryMapped(OSPI_HandleTypeDef hospi);
 // Write framebuffer sync/async
 void CO5300_WriteFrameRGB565(void);
 void CO5300_WriteFrameRGB565_DMA2D(DMA2D_HandleTypeDef hdma2d, const uint8_t *frame_rgb565, uint32_t width, uint32_t height);
-
 
 #endif /* INC_DISPLAY_H_ */

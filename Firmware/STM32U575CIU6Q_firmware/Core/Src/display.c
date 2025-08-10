@@ -177,3 +177,13 @@ void CO5300_WriteFrameRGB565_DMA2D(DMA2D_HandleTypeDef hdma2d, const uint8_t *fr
     }
 }
 
+HAL_StatusTypeDef CST820_ReadRegister(I2C_HandleTypeDef handle, uint8_t reg, uint8_t *data) {
+    // Write register address
+    HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&handle, CST820_I2C_ADDR, &reg, 1, HAL_MAX_DELAY);
+    if(status != HAL_OK) return status;
+
+    // Read 1 byte from register
+    status = HAL_I2C_Master_Receive(&handle, CST820_I2C_ADDR, data, 1, HAL_MAX_DELAY);
+    return status;
+}
+

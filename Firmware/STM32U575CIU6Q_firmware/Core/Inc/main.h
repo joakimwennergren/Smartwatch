@@ -32,6 +32,20 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+// Generic I2C read function:
+// deviceAddr: 7-bit I2C address shifted left by 1 (e.g. 0x28 << 1)
+// regAddr: register address to read from
+// pData: pointer to buffer to store read data
+// length: number of bytes to read
+HAL_StatusTypeDef I2C_ReadBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length);
+
+// Generic I2C write function:
+// deviceAddr: 7-bit I2C address shifted left by 1 (e.g. 0x28 << 1)
+// regAddr: register address to write to
+// pData: pointer to data bytes to send
+// length: number of bytes to write
+HAL_StatusTypeDef I2C_WriteBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length);
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

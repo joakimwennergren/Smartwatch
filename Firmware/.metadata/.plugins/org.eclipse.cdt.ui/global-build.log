@@ -1,13 +1,13 @@
-17:03:29 **** Incremental Build of configuration Debug for project STM32U575CIU6Q_firmware ****
+18:28:08 **** Incremental Build of configuration Debug for project STM32U575CIU6Q_firmware ****
 make -j11 all 
-arm-none-eabi-gcc "../Core/Src/ui.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32U575xx -c -I../Core/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U5xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include/ -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ -I../Middlewares/Third_Party/CMSIS/RTOS2/Include/ -I"/Users/joakimwennergren/Desktop/Smartwatch/Firmware/STM32U575CIU6Q_firmware/Drivers" -I"/Users/joakimwennergren/Desktop/Smartwatch/Firmware/STM32U575CIU6Q_firmware/Drivers/lvgl" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ui.d" -MT"Core/Src/ui.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ui.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32U575xx -c -I../Core/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U5xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include/ -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ -I../Middlewares/Third_Party/CMSIS/RTOS2/Include/ -I"/Users/joakimwennergren/Desktop/Smartwatch/Firmware/STM32U575CIU6Q_firmware/Drivers" -I"/Users/joakimwennergren/Desktop/Smartwatch/Firmware/STM32U575CIU6Q_firmware/Drivers/lvgl" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "STM32U575CIU6Q_firmware.elf" @"objects.list"   -mcpu=cortex-m33 -T"/Users/joakimwennergren/Desktop/Smartwatch/Firmware/STM32U575CIU6Q_firmware/STM32U575CIUXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32U575CIU6Q_firmware.map" -Wl,--gc-sections -static -Xlinker --no-warn-execstack --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: STM32U575CIU6Q_firmware.elf
  
 arm-none-eabi-size  STM32U575CIU6Q_firmware.elf 
 arm-none-eabi-objdump -h -S STM32U575CIU6Q_firmware.elf  > "STM32U575CIU6Q_firmware.list"
    text	   data	    bss	    dec	    hex	filename
- 443772	    180	 408884	 852836	  d0364	STM32U575CIU6Q_firmware.elf
+ 449731	    272	 409224	 859227	  d1c5b	STM32U575CIU6Q_firmware.elf
 Finished building: default.size.stdout
  
 Finished building: STM32U575CIU6Q_firmware.list

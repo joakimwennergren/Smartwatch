@@ -22,9 +22,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "display.h"
 #include "lvgl.h"
 #include "ui.h"
+#include "config.h"
 
 /* USER CODE END Includes */
 
@@ -72,6 +76,80 @@ static void MX_ICACHE_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+HAL_StatusTypeDef I2C_WriteBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length)
+{
+    HAL_StatusTypeDef status;
+    uint8_t *buffer;
+
+    // Allocate buffer for regAddr + data
+    buffer = malloc(length + 1);
+    if (buffer == NULL)
+        return HAL_ERROR;
+
+    buffer[0] = regAddr;             // First byte: register address
+    memcpy(&buffer[1], pData, length); // Following bytes: data
+
+    // Transmit register address + data in one I2C transaction
+    status = HAL_I2C_Master_Transmit(&handle, deviceAddr, buffer, length + 1, HAL_MAX_DELAY);
+
+    free(buffer);
+    return status;
+}
+
+HAL_StatusTypeDef I2C_ReadBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length)
+{
+    HAL_StatusTypeDef status;
+
+    // Send the register address to read from
+    status = HAL_I2C_Master_Transmit(&handle, deviceAddr, &regAddr, 1, HAL_MAX_DELAY);
+    if(status != HAL_OK) return status;
+
+    // Read the requested number of bytes
+    status = HAL_I2C_Master_Receive(&handle, deviceAddr, pData, length, HAL_MAX_DELAY);
+    return status;
+}
+
+#ifdef USE_DEBUG
+
+int _write(int file, char *ptr, int len) {
+    HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+    return len;
+}
+
+void I2C_Scan(void) {
+    HAL_StatusTypeDef result;
+    uint8_t i;
+    uint8_t foundDevices = 0;
+
+    printf("Scanning I2C bus...\r\n");
+
+    for(i = 1; i < 128; i++) // I2C addresses 0x01 to 0x7F
+    {
+        /*
+         * The HAL function HAL_I2C_IsDeviceReady expects
+         * the 7-bit address shifted left by 1 (i<<1).
+         * Timeout set to 10ms.
+         */
+        result = HAL_I2C_IsDeviceReady(&hi2c2, (uint16_t)(i << 1), 1, 10);
+
+        if(result == HAL_OK)
+        {
+            printf("Device found at 0x%02X\r\n", i);
+            foundDevices++;
+        }
+    }
+
+    if(foundDevices == 0)
+    {
+        printf("No I2C devices found.\r\n");
+    }
+    else
+    {
+        printf("Scan complete. %d device(s) found.\r\n", foundDevices);
+    }
+}
+#endif
 
 /* USER CODE END 0 */
 
@@ -124,6 +202,14 @@ int main(void)
   lv_display_set_buffers(display_g, frame_buffer, NULL, sizeof(frame_buffer), LV_DISPLAY_RENDER_MODE_DIRECT);
   create_lvgl_tick_task();
   create_lvgl_timer_task();
+
+#ifdef USE_DEBUG
+  // Expects these to be found on the bus:
+  // * CST820  		= 0x15
+  // * LSM6DSLTR 	= 0x6B
+  // * MAX1704      = 0x36
+  I2C_Scan();
+#endif
 
   /* USER CODE END 2 */
 

@@ -1,0 +1,83 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2025 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __MAIN_H
+#define __MAIN_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Includes ------------------------------------------------------------------*/
+#include "stm32u5xx_hal.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+// Generic I2C read function:
+// deviceAddr: 7-bit I2C address shifted left by 1 (e.g. 0x28 << 1)
+// regAddr: register address to read from
+// pData: pointer to buffer to store read data
+// length: number of bytes to read
+HAL_StatusTypeDef I2C_ReadBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length);
+
+// Generic I2C write function:
+// deviceAddr: 7-bit I2C address shifted left by 1 (e.g. 0x28 << 1)
+// regAddr: register address to write to
+// pData: pointer to data bytes to send
+// length: number of bytes to write
+HAL_StatusTypeDef I2C_WriteBytes(uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length);
+
+/* USER CODE END Includes */
+
+/* Exported types ------------------------------------------------------------*/
+/* USER CODE BEGIN ET */
+
+/* USER CODE END ET */
+
+/* Exported constants --------------------------------------------------------*/
+/* USER CODE BEGIN EC */
+
+/* USER CODE END EC */
+
+/* Exported macro ------------------------------------------------------------*/
+/* USER CODE BEGIN EM */
+
+/* USER CODE END EM */
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+
+/* USER CODE BEGIN Private defines */
+
+/* USER CODE END Private defines */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __MAIN_H */
