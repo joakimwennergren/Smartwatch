@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/joakimwennergren/Smartwatch">
-    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/arm.jpeg" alt="Logo" width="100%">
+    <img src="https://github.com/joakimwennergren/Smartwatch/blob/Main/images/arm.jpg" alt="Logo" width="100%">
   </a>
 <h3>Smartwatch</h3>
 
