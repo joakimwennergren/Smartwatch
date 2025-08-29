@@ -1,0 +1,2 @@
+../Core/Src/battery.c:9:19:MAX1704x_ReadSOC	2
+../Core/Src/battery.c:34:19:MAX1704x_ReadVoltage	2

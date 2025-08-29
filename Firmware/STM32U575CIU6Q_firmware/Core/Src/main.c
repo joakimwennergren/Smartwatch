@@ -77,78 +77,13 @@ static void MX_ICACHE_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-HAL_StatusTypeDef I2C_WriteBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length)
-{
-    HAL_StatusTypeDef status;
-    uint8_t *buffer;
+HAL_StatusTypeDef I2C_WriteBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length);
 
-    // Allocate buffer for regAddr + data
-    buffer = malloc(length + 1);
-    if (buffer == NULL)
-        return HAL_ERROR;
-
-    buffer[0] = regAddr;             // First byte: register address
-    memcpy(&buffer[1], pData, length); // Following bytes: data
-
-    // Transmit register address + data in one I2C transaction
-    status = HAL_I2C_Master_Transmit(&handle, deviceAddr, buffer, length + 1, HAL_MAX_DELAY);
-
-    free(buffer);
-    return status;
-}
-
-HAL_StatusTypeDef I2C_ReadBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length)
-{
-    HAL_StatusTypeDef status;
-
-    // Send the register address to read from
-    status = HAL_I2C_Master_Transmit(&handle, deviceAddr, &regAddr, 1, HAL_MAX_DELAY);
-    if(status != HAL_OK) return status;
-
-    // Read the requested number of bytes
-    status = HAL_I2C_Master_Receive(&handle, deviceAddr, pData, length, HAL_MAX_DELAY);
-    return status;
-}
+HAL_StatusTypeDef I2C_ReadBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length);
 
 #ifdef USE_DEBUG
-
-int _write(int file, char *ptr, int len) {
-    HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
-    return len;
-}
-
-void I2C_Scan(void) {
-    HAL_StatusTypeDef result;
-    uint8_t i;
-    uint8_t foundDevices = 0;
-
-    printf("Scanning I2C bus...\r\n");
-
-    for(i = 1; i < 128; i++) // I2C addresses 0x01 to 0x7F
-    {
-        /*
-         * The HAL function HAL_I2C_IsDeviceReady expects
-         * the 7-bit address shifted left by 1 (i<<1).
-         * Timeout set to 10ms.
-         */
-        result = HAL_I2C_IsDeviceReady(&hi2c2, (uint16_t)(i << 1), 1, 10);
-
-        if(result == HAL_OK)
-        {
-            printf("Device found at 0x%02X\r\n", i);
-            foundDevices++;
-        }
-    }
-
-    if(foundDevices == 0)
-    {
-        printf("No I2C devices found.\r\n");
-    }
-    else
-    {
-        printf("Scan complete. %d device(s) found.\r\n", foundDevices);
-    }
-}
+int _write(int file, char *ptr, int len);
+void I2C_Scan(void);
 #endif
 
 /* USER CODE END 0 */
@@ -520,6 +455,7 @@ static void MX_USART1_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
@@ -528,12 +464,97 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
+  /*Configure GPIO pin : IMU_INT1_Pin */
+  GPIO_InitStruct.Pin = IMU_INT1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(IMU_INT1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : IMU_INT2_Pin */
+  GPIO_InitStruct.Pin = IMU_INT2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(IMU_INT2_GPIO_Port, &GPIO_InitStruct);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+HAL_StatusTypeDef I2C_WriteBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length)
+{
+    HAL_StatusTypeDef status;
+    uint8_t *buffer;
+
+    // Allocate buffer for regAddr + data
+    buffer = malloc(length + 1);
+    if (buffer == NULL)
+        return HAL_ERROR;
+
+    buffer[0] = regAddr;             // First byte: register address
+    memcpy(&buffer[1], pData, length); // Following bytes: data
+
+    // Transmit register address + data in one I2C transaction
+    status = HAL_I2C_Master_Transmit(&handle, deviceAddr, buffer, length + 1, HAL_MAX_DELAY);
+
+    free(buffer);
+    return status;
+}
+
+HAL_StatusTypeDef I2C_ReadBytes(I2C_HandleTypeDef handle, uint16_t deviceAddr, uint8_t regAddr, uint8_t *pData, uint16_t length)
+{
+    HAL_StatusTypeDef status;
+
+    // Send the register address to read from
+    status = HAL_I2C_Master_Transmit(&handle, deviceAddr, &regAddr, 1, HAL_MAX_DELAY);
+    if(status != HAL_OK) return status;
+
+    // Read the requested number of bytes
+    status = HAL_I2C_Master_Receive(&handle, deviceAddr, pData, length, HAL_MAX_DELAY);
+    return status;
+}
+
+#ifdef USE_DEBUG
+
+int _write(int file, char *ptr, int len) {
+    HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+    return len;
+}
+
+void I2C_Scan(void) {
+    HAL_StatusTypeDef result;
+    uint8_t i;
+    uint8_t foundDevices = 0;
+
+    printf("Scanning I2C bus...\r\n");
+
+    for(i = 1; i < 128; i++) // I2C addresses 0x01 to 0x7F
+    {
+        /*
+         * The HAL function HAL_I2C_IsDeviceReady expects
+         * the 7-bit address shifted left by 1 (i<<1).
+         * Timeout set to 10ms.
+         */
+        result = HAL_I2C_IsDeviceReady(&hi2c2, (uint16_t)(i << 1), 1, 10);
+
+        if(result == HAL_OK)
+        {
+            printf("Device found at 0x%02X\r\n", i);
+            foundDevices++;
+        }
+    }
+
+    if(foundDevices == 0)
+    {
+        printf("No I2C devices found.\r\n");
+    }
+    else
+    {
+        printf("Scan complete. %d device(s) found.\r\n", foundDevices);
+    }
+}
+#endif
 
 /* USER CODE END 4 */
 

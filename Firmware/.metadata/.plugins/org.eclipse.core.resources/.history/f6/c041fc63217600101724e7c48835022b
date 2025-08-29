@@ -1,0 +1,59 @@
+/*
+ * ble.h
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: joakimwennergren
+ */
+
+#ifndef INC_BLE_H_
+#define INC_BLE_H_
+
+extern TaskHandle_t uart_poll_handle_g;
+
+/* RX ring buffer */
+#define RX_BUF_SIZE 256
+static uint8_t rx_ring[RX_BUF_SIZE];
+static volatile uint16_t rx_head = 0;
+static volatile uint16_t rx_tail = 0;
+
+/* single-byte buffer used by HAL interrupt-driven receive */
+static uint8_t rx_byte;
+
+/* Simple TX busy flag (optional) */
+static volatile uint8_t tx_busy = 0;
+
+/* Called for each received byte (in main context) */
+static void process_rx_byte(uint8_t b);
+
+/* ---------------- HAL callbacks -------------------- */
+
+/* Called by HAL when a receive completes (1 byte in this example) */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+
+/* Called by HAL when a transmit completes */
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
+
+/* Optional: error callback */
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart);
+
+void uart_poll(void* argument);
+
+void create_uart_poll_task(void) {
+    xTaskCreate(
+    	uart_poll,
+        "uart_poll",
+        256,
+        NULL,
+        tskIDLE_PRIORITY + 1,
+        &uart_poll_handle_g
+    );
+}
+
+/* ---------------- IRQ Handler -------------------- */
+
+/* Make sure your vector table maps USART1_IRQn to this handler (CubeMX does). */
+void USART1_IRQHandler(void);
+
+
+
+#endif /* INC_BLE_H_ */

@@ -1,0 +1,27 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+S_UPPER_SRCS += \
+../Middlewares/lvgl/src/draw/sw/blend/neon/lv_blend_neon.S 
+
+OBJS += \
+./Middlewares/lvgl/src/draw/sw/blend/neon/lv_blend_neon.o 
+
+S_UPPER_DEPS += \
+./Middlewares/lvgl/src/draw/sw/blend/neon/lv_blend_neon.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+Middlewares/lvgl/src/draw/sw/blend/neon/%.o: ../Middlewares/lvgl/src/draw/sw/blend/neon/%.S Middlewares/lvgl/src/draw/sw/blend/neon/subdir.mk
+	arm-none-eabi-gcc -mcpu=cortex-m33 -g3 -DDEBUG -c -I../Core/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32U5xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32U5xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include/ -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ -I../Middlewares/Third_Party/CMSIS/RTOS2/Include/ -I"/Users/joakimwennergren/STM32CubeIDE/workspace_1.19.0/Smartwatch_bench/Middlewares" -I"/Users/joakimwennergren/STM32CubeIDE/workspace_1.19.0/Smartwatch_bench/Middlewares/lvgl" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+
+clean: clean-Middlewares-2f-lvgl-2f-src-2f-draw-2f-sw-2f-blend-2f-neon
+
+clean-Middlewares-2f-lvgl-2f-src-2f-draw-2f-sw-2f-blend-2f-neon:
+	-$(RM) ./Middlewares/lvgl/src/draw/sw/blend/neon/lv_blend_neon.d ./Middlewares/lvgl/src/draw/sw/blend/neon/lv_blend_neon.o
+
+.PHONY: clean-Middlewares-2f-lvgl-2f-src-2f-draw-2f-sw-2f-blend-2f-neon
+

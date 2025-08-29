@@ -1,0 +1,4 @@
+../Drivers/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c:237:28:lv_draw_sw_blend_color_to_rgb565	27
+../Drivers/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c:385:28:lv_draw_sw_blend_image_to_rgb565	2
+../Drivers/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c:803:35:rgb565_image_blend	27
+../Drivers/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c:1495:44:drawbuf_next_row	1

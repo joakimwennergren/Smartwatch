@@ -10,8 +10,7 @@
 
 #include "main.h"
 
-// CST820 7-bit I2C address (shifted left by 1 for HAL)
-#define CST820_I2C_ADDR  (0x15 << 1)
+// CST820 Touch IC 7-bit I2C address (shifted left by 1 for HAL)
 // Register 	Address	Name			Description
 // --------     ------------            ------------------------------------------------------
 // 0x00			Device ID				Returns device ID or chip version
@@ -21,18 +20,13 @@
 // 0x04			Control Register		Control bits for enabling/disabling touch, reset, etc.
 // 0x05			Interrupt Status		Interrupt flags
 // 0x06 - 0x0F	Calibration / Config	Calibration values and configuration parameters
-
-// Adjust if your MCU maps QSPI memory to a different address
-#define QSPI_MEM_BASE        0x90000000UL
+#define CST820_I2C_ADDR  (0x15 << 1)
 
 // Panel geometry / pixel format (RGB565 => 2 bytes per pixel)
 #define PANEL_WIDTH          368
 #define PANEL_HEIGHT         448
 #define PIXEL_BYTES          2
 #define FRAMEBUFFER_SIZE     (PANEL_WIDTH * PANEL_HEIGHT * PIXEL_BYTES)
-
-// 33Kb framebuffer in RAM
-extern uint8_t frame_buffer[FRAMEBUFFER_SIZE];
 
 // --- Low-level QSPI write command helper (1-line command/address/data) ---
 // This sends instruction=0x02 with 24-bit address (0x00 CMD 0x00) and then data bytes.
@@ -46,8 +40,14 @@ HAL_StatusTypeDef CO5300_EnterMemoryMapped(OSPI_HandleTypeDef hospi);
 
 // @TODO enter/exit sleep
 
-// Write framebuffer sync/async
-void CO5300_WriteFrameRGB565(void);
-void CO5300_WriteFrameRGB565_DMA2D(DMA2D_HandleTypeDef hdma2d, const uint8_t *frame_rgb565, uint32_t width, uint32_t height);
+/**
+ * @brief External declaration of the frame buffer used for display rendering.
+ *
+ * This buffer holds the pixel data for the display. The size of the buffer is defined
+ * by FRAMEBUFFER_SIZE, which should be set according to the display's resolution and color depth.
+ *
+ * @note The actual definition and initialization of this buffer should be provided in the corresponding source file.
+ */
+extern uint8_t frame_buffer[FRAMEBUFFER_SIZE];
 
 #endif /* INC_DISPLAY_H_ */
