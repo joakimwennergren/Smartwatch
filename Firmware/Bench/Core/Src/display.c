@@ -9,7 +9,7 @@
 
 HAL_DMA_CallbackIDTypeDef dma_callback_id;
 
-void HAL_OSPI_TxCpltCallback(OSPI_HandleTypeDef *h) {}
+void hal_qspi_transfer_complete_cb(OSPI_HandleTypeDef *h) {}
 
 void reset_display() {
 	HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_SET);
@@ -27,7 +27,7 @@ void reset_touchcontroller() {
 	HAL_GPIO_WritePin(TP_RST_GPIO_Port, TP_RST_Pin, GPIO_PIN_SET);
 }
 
-HAL_StatusTypeDef CO5300_QSPI_WriteCmd(uint8_t cmd, const uint8_t *params, uint32_t param_len) {
+HAL_StatusTypeDef co5300_qspi_write_cmd(uint8_t cmd, const uint8_t *params, uint32_t param_len) {
 	OSPI_RegularCmdTypeDef sCommand = {0};
     HAL_StatusTypeDef status;
 
@@ -52,60 +52,60 @@ HAL_StatusTypeDef CO5300_QSPI_WriteCmd(uint8_t cmd, const uint8_t *params, uint3
     return status;
 }
 
-HAL_StatusTypeDef CO5300_SendInitSequence() {
+HAL_StatusTypeDef co5300_send_init_sequence() {
     HAL_StatusTypeDef st;
     uint8_t buf[4];
 
     // RFE 00
-    buf[0] = 0x00; st = CO5300_QSPI_WriteCmd(0xFE, buf, 1);
+    buf[0] = 0x00; st = co5300_qspi_write_cmd(0xFE, buf, 1);
     if (st != HAL_OK) return st;
 
     // RC4 80 -- command 0xC4, param 0x80
-    buf[0] = 0x80; st = CO5300_QSPI_WriteCmd(0xC4, buf, 1);
+    buf[0] = 0x80; st = co5300_qspi_write_cmd(0xC4, buf, 1);
     if (st != HAL_OK) return st;
 
     // R3A 55 -- COLMOD -> RGB565
-    buf[0] = 0b01010101; st = CO5300_QSPI_WriteCmd(0x3A, buf, 1);
+    buf[0] = 0b01010101; st = co5300_qspi_write_cmd(0x3A, buf, 1);
     if (st != HAL_OK) return st;
 
     // R35 00
-    buf[0] = 0x00; st = CO5300_QSPI_WriteCmd(0x35, buf, 1);
+    buf[0] = 0x00; st = co5300_qspi_write_cmd(0x35, buf, 1);
     if (st != HAL_OK) return st;
 
     // R53 20
-    buf[0] = 0x20; st = CO5300_QSPI_WriteCmd(0x53, buf, 1);
+    buf[0] = 0x20; st = co5300_qspi_write_cmd(0x53, buf, 1);
     if (st != HAL_OK) return st;
 
     // R51 FF (brightness)
-    buf[0] = 127; st = CO5300_QSPI_WriteCmd(0x51, buf, 1);
+    buf[0] = 127; st = co5300_qspi_write_cmd(0x51, buf, 1);
     if (st != HAL_OK) return st;
 
     // R63 FF
-    buf[0] = 0xFF; st = CO5300_QSPI_WriteCmd(0x63, buf, 1);
+    buf[0] = 0xFF; st = co5300_qspi_write_cmd(0x63, buf, 1);
     if (st != HAL_OK) return st;
 
     // R2A 00 10 01 7F -- column: SC=0x0010, SE=0x017F
     buf[0] = 0x00; buf[1] = 0x10; buf[2] = 0x01; buf[3] = 0x7F;
-    st = CO5300_QSPI_WriteCmd(0x2A, buf, 4);
+    st = co5300_qspi_write_cmd(0x2A, buf, 4);
     if (st != HAL_OK) return st;
 
     // R2B 00 00 01 BF -- row: SP=0x0000, EP=0x01BF
     buf[0] = 0x00; buf[1] = 0x00; buf[2] = 0x01; buf[3] = 0xBF;
-    st = CO5300_QSPI_WriteCmd(0x2B, buf, 4);
+    st = co5300_qspi_write_cmd(0x2B, buf, 4);
     if (st != HAL_OK) return st;
 
     // R11 Sleep Out
-    st = CO5300_QSPI_WriteCmd(0x11, NULL, 0);
+    st = co5300_qspi_write_cmd(0x11, NULL, 0);
     if (st != HAL_OK) return st;
 
     HAL_Delay(60);
 
     // R29 Display ON
-    st = CO5300_QSPI_WriteCmd(0x29, NULL, 0);
+    st = co5300_qspi_write_cmd(0x29, NULL, 0);
     return st;
 }
 
-HAL_StatusTypeDef CO5300_QSPI_EnterQuadMode() {
+HAL_StatusTypeDef co5300_qspi_enter_quad_mode() {
     OSPI_RegularCmdTypeDef c = {0};
     c.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
     c.Instruction       = 0x38;                 
@@ -116,7 +116,7 @@ HAL_StatusTypeDef CO5300_QSPI_EnterQuadMode() {
     return HAL_OSPI_Command(&hospi1, &c, HAL_MAX_DELAY);
 }
 
-HAL_StatusTypeDef CO5300_QSPI_EnterSingleMode() {
+HAL_StatusTypeDef co5300_qspi_enter_single_mode() {
     OSPI_RegularCmdTypeDef c = {0};
     c.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
     c.Instruction       = 0xFF;
@@ -128,7 +128,7 @@ HAL_StatusTypeDef CO5300_QSPI_EnterSingleMode() {
 }
 
 // --- set window by x0/x1,y0/y1 in *controller* coordinates (already offset/applied) ---
-HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
+HAL_StatusTypeDef co5300_set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
     uint8_t cas[4] = { (x0 >> 8) & 0x03,  // SC[9:8]
                        x0 & 0xFF,         // SC[7:0]
                        (x1 >> 8) & 0x03,  // SE[9:8]
@@ -140,24 +140,24 @@ HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16
                        y1 & 0xFF };       // EP[7:0]
 
     HAL_StatusTypeDef st;
-    st = CO5300_QSPI_WriteCmd(0x2A, cas, 4);  // CASET
+    st = co5300_qspi_write_cmd(0x2A, cas, 4);  // CASET
     if (st != HAL_OK) return st;
-    st = CO5300_QSPI_WriteCmd(0x2B, ras, 4);  // RASET
+    st = co5300_qspi_write_cmd(0x2B, ras, 4);  // RASET
     return st;
 }
 
-HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels,
+HAL_StatusTypeDef co5300_write_pixels_dma_chunked(const uint8_t *pixels,
                                                  uint32_t len) {
     HAL_StatusTypeDef st;
     OSPI_RegularCmdTypeDef c = {0};
 
-    st = CO5300_QSPI_EnterSingleMode();
-    st = CO5300_SetWindow(0,
+    st = co5300_qspi_enter_single_mode();
+    st = co5300_set_window(0,
                           0,
                           (uint16_t)(PANEL_WIDTH - 1),
                           (uint16_t)(PANEL_HEIGHT - 1));
     HAL_Delay(2);
-    st = CO5300_QSPI_EnterQuadMode();
+    st = co5300_qspi_enter_quad_mode();
     HAL_Delay(2);
 
     while (len) {
@@ -247,7 +247,7 @@ HAL_StatusTypeDef CO5300_WritePixels_4line(const uint8_t *pixels, uint32_t len) 
 }
 */
 
-HAL_StatusTypeDef CST820_ReadTouch(CST820_TouchData *touch) {
+HAL_StatusTypeDef cst820_read_touch(CST820_TouchData *touch) {
     uint8_t buf[8] = {0};
 
     // Read 8 bytes starting from 0x21

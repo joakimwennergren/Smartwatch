@@ -123,8 +123,7 @@ static void arc_event_cb(lv_event_t * e)
         // R51 FF (brightness)
         uint8_t buf[4];
         buf[0] = (uint8_t)v;
-        (void)CO5300_QSPI_WriteCmd(0x51, buf, 1);
-        // do something with v...
+        (void)co5300_qspi_write_cmd(0x51, buf, 1);
     }
 }
 
@@ -281,7 +280,7 @@ int main(void)
   HAL_Delay(60);
 
   // Initialize display
-  CO5300_SendInitSequence();
+  co5300_send_init_sequence();
 
   // Initialize LVGL
   initialize_lvgl();
@@ -315,7 +314,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	CST820_ReadTouch(&td); // @TODO read on interrupt
+	cst820_read_touch(&td); // @TODO read on interrupt
 	lv_timer_handler();
 	lv_tick_inc(10);
 	HAL_Delay(10);

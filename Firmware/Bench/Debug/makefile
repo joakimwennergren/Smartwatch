@@ -188,8 +188,8 @@ all: main-build
 main-build: Smartwatch_bench.elf secondary-outputs
 
 # Tool invocations
-Smartwatch_bench.elf Smartwatch_bench.map: $(OBJS) $(USER_OBJS) /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/STM32U575ZITXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Smartwatch_bench.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/STM32U575ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Smartwatch_bench.map" -Wl,--gc-sections -static -u _printf_float -u _printf_float -z noexecstack --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Smartwatch_bench.elf Smartwatch_bench.map: $(OBJS) $(USER_OBJS) /Users/joakimwennergren/Desktop/Smartwatch/Firmware/Bench/STM32U575ZITXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Smartwatch_bench.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"/Users/joakimwennergren/Desktop/Smartwatch/Firmware/Bench/STM32U575ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Smartwatch_bench.map" -Wl,--gc-sections -static -u _printf_float -u _printf_float -z noexecstack --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

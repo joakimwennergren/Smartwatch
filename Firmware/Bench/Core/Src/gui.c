@@ -15,7 +15,7 @@ static void lvgl_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t 
     const uint32_t num_bytes = width * height * sizeof(lv_color16_t);
 
     lv_draw_sw_rgb565_swap(px_map, width * height);
-    CO5300_WritePixels_DMA_chunked(px_map, num_bytes);
+    co5300_write_pixels_dma_chunked(px_map, num_bytes);
     lv_display_flush_ready(display);
 }
 

@@ -1,4 +1,4 @@
-/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v8.h:86:20:lv_obj_move_foreground	2
+/Users/joakimwennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v8.h:86:20:lv_obj_move_foreground	2
 ../Core/Src/main.c:88:6:HAL_RTC_AlarmAEventCallback	1
 ../Core/Src/main.c:94:13:RTC_SetupOnce	1
 ../Core/Src/main.c:111:6:RTC_Read	1
