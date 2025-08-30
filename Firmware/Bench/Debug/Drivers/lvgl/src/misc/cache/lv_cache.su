@@ -1,7 +1,3 @@
-../Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:216:27:lv_mutex_init	16	static
-../Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:222:27:lv_mutex_lock	16	static
-../Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:234:27:lv_mutex_unlock	16	static
-../Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:240:27:lv_mutex_delete	16	static
 ../Drivers/lvgl/src/misc/cache/lv_cache.c:46:14:lv_cache_create	32	static
 ../Drivers/lvgl/src/misc/cache/lv_cache.c:70:6:lv_cache_destroy	16	static
 ../Drivers/lvgl/src/misc/cache/lv_cache.c:81:20:lv_cache_acquire	32	static

@@ -113,7 +113,7 @@ HAL_StatusTypeDef CO5300_QSPI_EnterSingleMode() {
 }
 
 // --- set window by x0/x1,y0/y1 in *controller* coordinates (already offset/applied) ---
-HAL_StatusTypeDef CO5300_SetWindowXYXY(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
+HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
     //uint8_t cas[4] = { x0 >> 8, x0 & 0xFF, x1 >> 8, x1 & 0xFF };
     uint8_t cas[4] = { (x0 >> 8) & 0x03,  // SC[9:8]
                        x0 & 0xFF,         // SC[7:0]
@@ -143,19 +143,13 @@ HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels,
     st = CO5300_QSPI_EnterSingleMode();
 
 
-    st = CO5300_SetWindowXYXY(0,
-                                0,
-                                (uint16_t)(PANEL_WIDTH - 1),
-                                (uint16_t)(PANEL_HEIGHT - 1));
-
-
-    HAL_Delay(100);
-
-
+    st = CO5300_SetWindow(0,
+                          0,
+                          (uint16_t)(PANEL_WIDTH - 1),
+                          (uint16_t)(PANEL_HEIGHT - 1));
+    HAL_Delay(1);
     //st = CO5300_QSPI_EnterQuadMode();
-
-
-    HAL_Delay(100);
+    HAL_Delay(1);
 
     while (len) {
         uint32_t n = (len > OSPI_DMA_MAX_BYTES) ? OSPI_DMA_MAX_BYTES : len;
@@ -245,102 +239,6 @@ static HAL_StatusTypeDef CO5300_RamWrite_Header(OSPI_HandleTypeDef *h, uint32_t 
     return HAL_OSPI_Command(h, &c, HAL_MAX_DELAY);
 }
 
-/*
-HAL_StatusTypeDef co5300_kick_next(void)
-{
-    if (g_stream.remain == 0) return HAL_OK;
-
-    uint32_t n = (g_stream.remain > g_stream.chunk) ? g_stream.chunk : g_stream.remain;
-
-    // keep non-final chunks on whole-line boundaries (prevents weird wrap/banding)
-    if (g_stream.remain > n && g_stream.line_bytes) {
-        n = (n / g_stream.line_bytes) * g_stream.line_bytes;
-        if (n == 0) n = g_stream.line_bytes;        // ensure forward progress
-    }
-
-    HAL_StatusTypeDef st;
-    st = CO5300_RamWrite_Header(g_stream.hospi, n, g_stream.qpi_instr);
-    if (st != HAL_OK) return st;
-
-    st = HAL_OSPI_Transmit_DMA(g_stream.hospi, (uint8_t*)g_stream.p);
-    if (st == HAL_OK) {
-        g_stream.p      += n;
-        g_stream.remain -= n;
-    }
-    return st;
-}
-*/
-
-// Start a frame: sets window, then streams 'bytes' from 'buf' in chunks.
-// - w,h: window size (in pixels). Make sure 'bytes == w*h*2' for RGB565.
-// - qpi_instr: 0 if you DID NOT send 0x38 (1-line instr/addr), 1 if you did.
-// - data_4_lines: 0 for 1-line pixel payload (slow), 1 for 4-line payload (fast).
-/*
-HAL_StatusTypeDef CO5300_PushFrame_DMA(OSPI_HandleTypeDef *hospi,
-                                       uint16_t x, uint16_t y, uint16_t w, uint16_t h,
-                                       const void *buf, uint32_t bytes,
-                                       uint8_t qpi_instr, uint8_t data_4_lines)
-{
-    // 0) Define the write region (once per frame)
-    HAL_StatusTypeDef st = CO5300_SetWindow(hospi, x, y, x+w-1, y+h-1, qpi_instr);
-    if (st != HAL_OK) return st;
-
-    // 1) Setup streaming context
-    g_stream.hospi      = hospi;
-    g_stream.p          = (const uint8_t*)buf;
-    g_stream.remain     = bytes;
-    g_stream.line_bytes = (uint32_t)w * 2;  // RGB565
-    g_stream.qpi_instr  = qpi_instr;
-    g_stream.dataMode   = data_4_lines ? HAL_OSPI_DATA_4_LINES : HAL_OSPI_DATA_1_LINE;
-
-    // Choose a chunk size that’s ≤ DMA max and multiple of line_bytes
-    uint32_t chunk = OSPI_DMA_MAX_BYTES;
-    if (g_stream.line_bytes && chunk > g_stream.line_bytes) {
-        chunk = (chunk / g_stream.line_bytes) * g_stream.line_bytes;
-        if (chunk == 0) chunk = g_stream.line_bytes;
-    }
-    g_stream.chunk = chunk;
-
-    // 2) Kick the first chunk; the Tx-complete ISR chains the rest
-    return co5300_kick_next();
-}
-*/
-
-/*
-HAL_StatusTypeDef CO5300_RamWrite_DMA_Chunked(OSPI_HandleTypeDef *h,
-                                              const void *buf, uint32_t bytes,
-                                              uint8_t qpi_instr)
-{
-    g = (OspiStream){ .h = h, .ptr = buf, .remain = bytes, .qpi_instr = qpi_instr };
-
-    // fire the first chunk; the callback will chain the rest
-    return ospi_kick_next_chunk();
-}
-
-HAL_StatusTypeDef CO5300_WritePixels_1line(const uint8_t *pixels, uint32_t num_bytes) {
-    OSPI_RegularCmdTypeDef sCommand = {0};
-
-    sCommand.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
-    sCommand.FlashId            = HAL_OSPI_FLASH_ID_1;
-    sCommand.Instruction        = 0x02; 
-    sCommand.InstructionSize    = HAL_OSPI_INSTRUCTION_8_BITS;
-    sCommand.InstructionMode    = HAL_OSPI_INSTRUCTION_1_LINE;
-    sCommand.Address            = 0x002C00;
-    sCommand.AddressSize        = HAL_OSPI_ADDRESS_24_BITS;
-    sCommand.AddressMode        = HAL_OSPI_ADDRESS_1_LINE;
-    sCommand.DataMode           = HAL_OSPI_DATA_1_LINE;
-    sCommand.NbData             = num_bytes;
-    sCommand.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
-    sCommand.DummyCycles        = 0;
-    sCommand.SIOOMode           = HAL_OSPI_SIOO_INST_EVERY_CMD;
-
-    if (HAL_OSPI_Command(&hospi1, &sCommand, HAL_MAX_DELAY) != HAL_OK)
-        return HAL_ERROR;
-
-    return HAL_OSPI_Transmit(&hospi1, (uint8_t*)pixels, HAL_MAX_DELAY);
-}
-*/
-
 HAL_StatusTypeDef CO5300_WritePixels_4line(const uint8_t *pixels, uint32_t len) {
     OSPI_RegularCmdTypeDef sCommand = {0};
 
@@ -373,7 +271,7 @@ HAL_StatusTypeDef CST820_ReadTouch(CST820_TouchData *touch) {
     uint8_t buf[8] = {0};
 
     // Read 8 bytes starting from 0x21
-    if (HAL_I2C_Mem_Read(&hi2c1, CST820_I2C_ADDR, CST820_REG_DATA,
+    if (HAL_I2C_Mem_Read(&hi2c1, CST820_I2C_ADDR, CST820_TP_DATA_REG,
                          I2C_MEMADD_SIZE_8BIT, buf, sizeof(buf), HAL_MAX_DELAY) != HAL_OK) {
         return HAL_ERROR;
     }

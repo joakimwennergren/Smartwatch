@@ -142,7 +142,21 @@ Drivers/lvgl/src/core/lv_obj_pos.o: ../Drivers/lvgl/src/core/lv_obj_pos.c \
  ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_os.h \
  ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/../lv_conf_internal.h \
  ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/../misc/lv_types.h \
- ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_os_none.h \
+ ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_freertos.h \
+ ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_os.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacrocommon.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Drivers/lvgl/src/core/../core/../draw/sw/../lv_draw_vector.h \
  ../Drivers/lvgl/src/core/../core/../draw/sw/../../misc/lv_array.h \
  ../Drivers/lvgl/src/core/../core/../draw/sw/../../misc/lv_matrix.h \
@@ -361,7 +375,21 @@ Drivers/lvgl/src/core/lv_obj_pos.o: ../Drivers/lvgl/src/core/lv_obj_pos.c \
 ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_os.h:
 ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/../lv_conf_internal.h:
 ../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/../misc/lv_types.h:
-../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_os_none.h:
+../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_freertos.h:
+../Drivers/lvgl/src/core/../core/../draw/sw/../../osal/lv_os.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+../Core/Inc/FreeRTOSConfig.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacro.h:
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacrocommon.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Drivers/lvgl/src/core/../core/../draw/sw/../lv_draw_vector.h:
 ../Drivers/lvgl/src/core/../core/../draw/sw/../../misc/lv_array.h:
 ../Drivers/lvgl/src/core/../core/../draw/sw/../../misc/lv_matrix.h:

@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os2.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -26,7 +27,7 @@
 #include <stdlib.h>
 #include "display.h"
 #include "lvgl.h"
-#include <roboto_58.h>   // generated font file
+#include <roboto_58.h>
 #include <roboto_28.h>
 
 /* USER CODE END Includes */
@@ -55,6 +56,8 @@ DMA_HandleTypeDef handle_GPDMA1_Channel2;
 
 RTC_HandleTypeDef hrtc;
 
+TIM_HandleTypeDef htim16;
+
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
@@ -78,13 +81,6 @@ void HAL_OSPI_TxCpltCallback(OSPI_HandleTypeDef *h)
     */
 
     //(void)co5300_kick_next();   // chain next chunk (if any)
-}
-
-
-static void my_lv_log_cb(lv_log_level_t level, const char *buf)
-{
-    // Transmit only what we actually have in the buffer
-    HAL_UART_Transmit(&huart4, buf, 200, 1000);
 }
 
 void lvgl_flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map) {
@@ -221,6 +217,7 @@ void MyTask(void *argument)
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void SystemPower_Config(void);
+void MX_FREERTOS_Init(void);
 static void MX_GPIO_Init(void);
 static void MX_GPDMA1_Init(void);
 static void MX_ICACHE_Init(void);
@@ -228,6 +225,7 @@ static void MX_I2C1_Init(void);
 static void MX_OCTOSPI1_Init(void);
 static void MX_UART4_Init(void);
 static void MX_RTC_Init(void);
+static void MX_TIM16_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -267,20 +265,6 @@ void RTC_Read(RTC_TimeTypeDef *t, RTC_DateTypeDef *d)
 {
     HAL_RTC_GetTime(&hrtc, t, RTC_FORMAT_BIN);
     HAL_RTC_GetDate(&hrtc, d, RTC_FORMAT_BIN); // MUST read date after time (freezes shadow regs)
-}
-
-static void btn_event_cb(lv_event_t * e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    lv_obj_t * btn = lv_event_get_target_obj(e);
-    if(code == LV_EVENT_CLICKED) {
-        static uint8_t cnt = 0;
-        cnt++;
-
-        /*Get the first child of the button which is the label and change its text*/
-        lv_obj_t * label = lv_obj_get_child(btn, 0);
-        lv_label_set_text_fmt(label, "Button: %d", cnt);
-    }
 }
 
 void my_input_read(lv_indev_t * indev, lv_indev_data_t * data)
@@ -536,6 +520,70 @@ void create_night_sky(void) {
     lv_obj_add_event_cb(sky, sky_delete_event_cb, LV_EVENT_DELETE, ctx);
 }
 
+void gui_tick_task(void *argument) {
+	for(;;) {
+		lv_tick_inc(10);
+		osDelay(10);
+	}
+}
+
+void gui_task(void *argument) {
+	// Reset display and touch controller
+	HAL_GPIO_WritePin(GPIOC, VCI_EN_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, TP_RST_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOC, LCD_RESET_Pin, GPIO_PIN_SET);
+	HAL_Delay(32);
+	HAL_GPIO_WritePin(GPIOA, TP_RST_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOC, LCD_RESET_Pin, GPIO_PIN_RESET);
+	HAL_Delay(32);
+	HAL_GPIO_WritePin(GPIOA, TP_RST_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOC, LCD_RESET_Pin, GPIO_PIN_SET);
+	HAL_Delay(120);
+	CO5300_SendInitSequence();
+	HAL_Delay(120);
+
+
+
+	// Initialize LVGL
+	lv_init();
+	lv_display_t *display_g = lv_display_create(PANEL_WIDTH, PANEL_HEIGHT);
+	lv_display_set_color_format(display_g, LV_COLOR_FORMAT_RGB565);        // important
+	lv_display_set_flush_cb(display_g, lvgl_flush_cb);
+	lv_display_set_buffers(display_g, buf_1, NULL, sizeof(buf_1), LV_DISPLAY_RENDER_MODE_FULL);
+
+	/*
+
+	lv_indev_t *touch = lv_indev_create();
+	lv_indev_set_type(touch, LV_INDEV_TYPE_POINTER);
+	lv_indev_set_read_cb(touch, my_input_read);  // your callback (see below)
+	lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0xFF0000), LV_PART_MAIN);
+	create_night_sky();
+	lv_obj_t *img = lv_img_create(lv_scr_act());
+	lv_img_set_src(img, &tree);
+	lv_obj_center(img);
+	static lv_style_t style;
+	lv_style_init(&style);
+	lv_style_set_text_font(&style, &roboto_58);
+	lv_obj_t * label = lv_label_create(lv_screen_active());
+	lv_label_set_text(label, "00:00");
+	lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xFFFFFF), LV_PART_MAIN);
+	lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 300);  // 50 px from top
+	lv_timer_create(clock_timer_cb, 1000, label);
+	lv_obj_move_foreground(label);    // or create label after the image
+	lv_obj_add_style(label, &style, 0);
+	lv_obj_t *label2 = lv_label_create(lv_scr_act());
+	set_date_label(label2);
+	build_gui();
+	lv_obj_clear_flag(lv_scr_act(), LV_OBJ_FLAG_SCROLLABLE);
+	*/
+
+	for (;;) {
+		CST820_ReadTouch(&td);
+		lv_timer_handler();
+		osDelay(10);
+	}
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -576,107 +624,44 @@ int main(void)
   MX_OCTOSPI1_Init();
   MX_UART4_Init();
   MX_RTC_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
-
   RTC_SetupOnce();
 
-  HAL_GPIO_WritePin(GPIOC, VCI_EN_Pin, GPIO_PIN_SET);
+  // Create thread
+  osThreadAttr_t task_attr_tick = {
+      .name = "GUITickTask",
+      .priority = osPriorityNormal,
+      .stack_size = 512 // stack size in bytes
+  };
 
-  HAL_GPIO_WritePin(GPIOA, TP_RST_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(GPIOC, LCD_RESET_Pin, GPIO_PIN_SET);
-  HAL_Delay(32);
-  HAL_GPIO_WritePin(GPIOA, TP_RST_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(GPIOC, LCD_RESET_Pin, GPIO_PIN_RESET);
-  HAL_Delay(32);
-  HAL_GPIO_WritePin(GPIOA, TP_RST_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(GPIOC, LCD_RESET_Pin, GPIO_PIN_SET);
+  osThreadNew(gui_tick_task, NULL, &task_attr_tick);
 
-  HAL_Delay(120);
+  // Create thread
+  osThreadAttr_t task_attr = {
+      .name = "GUITask",
+      .priority = osPriorityNormal,
+      .stack_size = 1 * 1024  // stack size in bytes
+  };
 
-  CO5300_SendInitSequence();
-
-  HAL_Delay(120);
-
-  uint8_t Buffer[25] = {0};
-  uint8_t Space[] = " - ";
-  uint8_t StartMSG[] = "Starting I2C Scanning: \r\n";
-  uint8_t EndMSG[] = "\r\n";
-  uint8_t i = 0, ret;
-
-  for (uint8_t i = 0x01; i < 127; i++) {
-      ret = HAL_I2C_IsDeviceReady(&hi2c1, i << 1, 3, 5);
-      if (ret == HAL_OK) {
-          sprintf(Buffer, "Device found at 0x%02X\r\n", i);
-          HAL_UART_Transmit(&huart4, (uint8_t*)Buffer, strlen(Buffer), 1000);
-      }
-      HAL_Delay(1);
-  }
-
-  // Initialize LVGL
-  lv_init();
-  lv_display_t *display_g = lv_display_create(PANEL_WIDTH, PANEL_HEIGHT);
-  lv_display_set_color_format(display_g, LV_COLOR_FORMAT_RGB565);        // important
-  lv_display_set_flush_cb(display_g, lvgl_flush_cb);
-  lv_display_set_buffers(display_g, buf_1, NULL, sizeof(buf_1), LV_DISPLAY_RENDER_MODE_FULL);
-  lv_indev_t *touch = lv_indev_create();
-  lv_indev_set_type(touch, LV_INDEV_TYPE_POINTER);
-  lv_indev_set_read_cb(touch, my_input_read);  // your callback (see below)
-
-  lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0xFF0000), LV_PART_MAIN);
-
-
-  create_night_sky();
-
-  lv_obj_t *img = lv_img_create(lv_scr_act());
-  lv_img_set_src(img, &tree);
-  lv_obj_center(img);
-
-  static lv_style_t style;
-  lv_style_init(&style);
-  lv_style_set_text_font(&style, &roboto_58);
-
-  lv_obj_t * label = lv_label_create(lv_screen_active());
-  lv_label_set_text(label, "00:00");
-  lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-  lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 300);  // 50 px from top
-  lv_timer_create(clock_timer_cb, 1000, label);
-  lv_obj_move_foreground(label);    // or create label after the image
-  lv_obj_add_style(label, &style, 0);
-
-  lv_obj_t *label2 = lv_label_create(lv_scr_act());
-  set_date_label(label2);
-
-  build_gui();
-
-  lv_obj_clear_flag(lv_scr_act(), LV_OBJ_FLAG_SCROLLABLE);
-
-  //build_gui();
-
-  //lv_obj_t * btn = lv_button_create(lv_screen_active());
-  //lv_obj_set_pos(btn, 100, 100);
-  //lv_obj_set_size(btn, 160, 80);
-  //lv_obj_add_event_cb(btn, btn_event_cb, LV_EVENT_ALL, NULL);
-  //lv_obj_align(btn, LV_ALIGN_CENTER, 0, 0);
-
-  //lv_obj_t * label = lv_label_create(btn);
-  //lv_label_set_text(label, "Button");
-  //lv_obj_center(label);
+  osThreadNew(gui_task, NULL, &task_attr);
 
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();
+  /* Call init function for freertos objects (in app_freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  RTC_TimeTypeDef sTime;
-  RTC_DateTypeDef sDate;
-  //uint8_t Buffer[40] = {0};
   while (1)
   {
-	CST820_ReadTouch(&td);
-
-	lv_timer_handler();
-	//lv_indev_read(indev);
-	HAL_Delay(5);
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -734,12 +719,12 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2
                               |RCC_CLOCKTYPE_PCLK3;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB3CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -785,7 +770,7 @@ static void MX_GPDMA1_Init(void)
   __HAL_RCC_GPDMA1_CLK_ENABLE();
 
   /* GPDMA1 interrupt Init */
-    HAL_NVIC_SetPriority(GPDMA1_Channel2_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(GPDMA1_Channel2_IRQn, 5, 0);
     HAL_NVIC_EnableIRQ(GPDMA1_Channel2_IRQn);
 
   /* USER CODE BEGIN GPDMA1_Init 1 */
@@ -1023,6 +1008,38 @@ static void MX_RTC_Init(void)
 }
 
 /**
+  * @brief TIM16 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM16_Init(void)
+{
+
+  /* USER CODE BEGIN TIM16_Init 0 */
+
+  /* USER CODE END TIM16_Init 0 */
+
+  /* USER CODE BEGIN TIM16_Init 1 */
+
+  /* USER CODE END TIM16_Init 1 */
+  htim16.Instance = TIM16;
+  htim16.Init.Prescaler = 79;
+  htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim16.Init.Period = 65535;
+  htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim16.Init.RepetitionCounter = 0;
+  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM16_Init 2 */
+
+  /* USER CODE END TIM16_Init 2 */
+
+}
+
+/**
   * @brief UART4 Initialization Function
   * @param None
   * @retval None
@@ -1123,6 +1140,28 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM17 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM17)
+  {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

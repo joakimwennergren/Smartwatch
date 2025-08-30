@@ -9,6 +9,10 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/lvgl/src/widgets/win/subdir.mk
 -include Drivers/lvgl/src/widgets/tileview/subdir.mk
 -include Drivers/lvgl/src/widgets/textarea/subdir.mk
@@ -270,8 +274,8 @@ all: main-build
 main-build: Smartwatch_bench.elf secondary-outputs
 
 # Tool invocations
-Smartwatch_bench.elf Smartwatch_bench.map: $(OBJS) $(USER_OBJS) /Users/joakimwennergren/STM32CubeIDE/workspace_1.19.0/Smartwatch_bench/STM32U575ZITXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Smartwatch_bench.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"/Users/joakimwennergren/STM32CubeIDE/workspace_1.19.0/Smartwatch_bench/STM32U575ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Smartwatch_bench.map" -Wl,--gc-sections -static -u _printf_float -u _printf_float -z noexecstack --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Smartwatch_bench.elf Smartwatch_bench.map: $(OBJS) $(USER_OBJS) /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/STM32U575ZITXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Smartwatch_bench.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/STM32U575ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Smartwatch_bench.map" -Wl,--gc-sections -static -u _printf_float -u _printf_float -z noexecstack --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,9 +1,5 @@
 ../Drivers/lvgl/src/draw/sw/../../misc/lv_area.h:107:20:lv_area_copy	1
 ../Drivers/lvgl/src/draw/sw/../../misc/../stdlib/lv_string.h:73:20:lv_memzero	1
-../Drivers/lvgl/src/draw/sw/../../core/../draw/sw/../../osal/lv_os.h:216:27:lv_mutex_init	1
-../Drivers/lvgl/src/draw/sw/../../core/../draw/sw/../../osal/lv_os.h:222:27:lv_mutex_lock	1
-../Drivers/lvgl/src/draw/sw/../../core/../draw/sw/../../osal/lv_os.h:234:27:lv_mutex_unlock	1
-../Drivers/lvgl/src/draw/sw/../../core/../draw/sw/../../osal/lv_os.h:240:27:lv_mutex_delete	1
 ../Drivers/lvgl/src/draw/sw/lv_draw_sw_mask.c:81:6:lv_draw_sw_mask_init	1
 ../Drivers/lvgl/src/draw/sw/lv_draw_sw_mask.c:86:6:lv_draw_sw_mask_deinit	1
 ../Drivers/lvgl/src/draw/sw/lv_draw_sw_mask.c:91:45:lv_draw_sw_mask_apply	5

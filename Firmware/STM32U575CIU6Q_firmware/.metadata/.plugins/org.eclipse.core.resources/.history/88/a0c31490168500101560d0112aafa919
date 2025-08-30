@@ -1,0 +1,16 @@
+/*
+ * util.h
+ *
+ *  Created on: Aug 29, 2025
+ *      Author: joakim-wennergren
+ */
+
+#ifndef INC_UTIL_H_
+#define INC_UTIL_H_
+
+#include <stdint.h>
+#include "main.h"
+
+void delay_us(uint32_t us);
+
+#endif /* INC_UTIL_H_ */

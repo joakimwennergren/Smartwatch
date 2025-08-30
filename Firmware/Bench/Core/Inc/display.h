@@ -12,8 +12,9 @@
 
 // CST820 7-bit I2C address (shifted left by 1 for HAL)
 #define CST820_I2C_ADDR  (0x15 << 1)
-// First data register
-#define CST820_REG_DATA   0x21          
+
+// Touch point data register
+#define CST820_TP_DATA_REG   0x21
 
 // Panel geometry / pixel format (RGB565 => 2 bytes per pixel)
 #define PANEL_WIDTH          (368 + 16)
@@ -116,14 +117,8 @@ HAL_StatusTypeDef CO5300_QSPI_EnterQuadMode();
 HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels, uint32_t len);
 
 
-HAL_StatusTypeDef co5300_kick_next(void);
-
-HAL_StatusTypeDef CO5300_RamWrite_DMA_Chunked(OSPI_HandleTypeDef *h,
-                                              const void *buf, uint32_t bytes,
-                                              uint8_t qpi_instr);
-
 // --- set window by x0/x1,y0/y1 in *controller* coordinates (already offset/applied) ---
-HAL_StatusTypeDef CO5300_SetWindowXYXY(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
+HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
 
 // Start a frame: sets window, then streams 'bytes' from 'buf' in chunks.
 // - w,h: window size (in pixels). Make sure 'bytes == w*h*2' for RGB565.

@@ -235,4 +235,8 @@ Drivers/lvgl/src/widgets/tabview \
 Drivers/lvgl/src/widgets/textarea \
 Drivers/lvgl/src/widgets/tileview \
 Drivers/lvgl/src/widgets/win \
+Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 \
+Middlewares/Third_Party/FreeRTOS/Source \
+Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure \
+Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang \
 
