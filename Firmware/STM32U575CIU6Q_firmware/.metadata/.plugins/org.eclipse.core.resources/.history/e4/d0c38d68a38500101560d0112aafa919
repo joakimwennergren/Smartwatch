@@ -1,0 +1,46 @@
+/*
+ * gui.h
+ *
+ *  Created on: Aug 30, 2025
+ *      Author: joakim-wennergren
+ */
+
+#ifndef INC_GUI_H_
+#define INC_GUI_H_
+
+#include <stdlib.h>
+#include <string.h>
+#include "display.h"
+#include "lvgl.h"
+
+#ifndef SKY_W
+#  define SKY_W PANEL_WIDTH
+#endif
+#ifndef SKY_H
+#  define SKY_H PANEL_HEIGHT
+#endif
+#ifndef STAR_COUNT
+#  define STAR_COUNT 120
+#endif
+
+typedef struct {
+    lv_coord_t x, y;
+    uint8_t r;       // star "radius" in px (1–2 looks best)
+    uint16_t angle;  // 0..3599 for lv_trigo_sin (0.1 deg units)
+    uint8_t speed;   // angle delta per tick (1..5)
+    uint8_t base_opa;// 80..200, baseline opacity
+    uint8_t amp;     // 20..75, twinkle amplitude
+} star_t;
+
+static lv_obj_t *s_canvas = NULL;
+static star_t *s_stars = NULL;
+
+// The canvas pixel buffer. TRUE_COLOR is enough since we draw onto a solid bg.
+static lv_color_t s_buf[SKY_W * SKY_H];
+
+extern CST820_TouchData td;
+
+void initialize_lvgl();
+lv_obj_t *night_sky_create(lv_obj_t *parent);
+
+#endif /* INC_GUI_H_ */

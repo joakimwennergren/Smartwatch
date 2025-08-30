@@ -1,0 +1,282 @@
+/*
+ * display.cp
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: Joakim Wennergren
+ */
+#include <display.h>
+#include <string.h>
+
+HAL_DMA_CallbackIDTypeDef dma_callback_id;
+
+void HAL_OSPI_TxCpltCallback(OSPI_HandleTypeDef *h) {}
+
+void reset_display() {
+	HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_SET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_RESET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_SET);
+}
+
+void reset_touchcontroller() {
+	HAL_GPIO_WritePin(TP_RST_GPIO_Port, TP_RST_Pin, GPIO_PIN_SET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(TP_RST_GPIO_Port, TP_RST_Pin, GPIO_PIN_RESET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(TP_RST_GPIO_Port, TP_RST_Pin, GPIO_PIN_SET);
+}
+
+HAL_StatusTypeDef CO5300_QSPI_WriteCmd(uint8_t cmd, const uint8_t *params, uint32_t param_len) {
+	OSPI_RegularCmdTypeDef sCommand;
+    HAL_StatusTypeDef status;
+
+    memset(&sCommand, 0, sizeof(sCommand));
+
+    sCommand.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
+    sCommand.Instruction       = 0x02; // "Write" instruction per datasheet
+    sCommand.AddressMode       = HAL_OSPI_ADDRESS_1_LINE;
+    sCommand.AddressSize       = HAL_OSPI_ADDRESS_24_BITS;
+    sCommand.Address           = ((uint32_t)cmd << 8); // 0x00 CMD 0x00
+    sCommand.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
+    sCommand.DummyCycles       = 0;
+    sCommand.DataMode          = (param_len > 0) ? HAL_OSPI_DATA_1_LINE : HAL_OSPI_DATA_NONE;
+    sCommand.NbData            = param_len;
+    sCommand.SIOOMode          = HAL_OSPI_SIOO_INST_EVERY_CMD;
+
+    status = HAL_OSPI_Command(&hospi1, &sCommand, HAL_MAX_DELAY);
+    if (status != HAL_OK) return status;
+
+    if (param_len > 0) {
+        status = HAL_OSPI_Transmit(&hospi1, (uint8_t *)params, HAL_MAX_DELAY);
+    }
+    return status;
+}
+
+HAL_StatusTypeDef CO5300_SendInitSequence() {
+    HAL_StatusTypeDef st;
+    uint8_t buf[4];
+
+    // RFE 00
+    buf[0] = 0x00; st = CO5300_QSPI_WriteCmd(0xFE, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // RC4 80 -- command 0xC4, param 0x80
+    buf[0] = 0x80; st = CO5300_QSPI_WriteCmd(0xC4, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R3A 55 -- COLMOD -> RGB565
+    buf[0] = 0b01010101; st = CO5300_QSPI_WriteCmd(0x3A, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R35 00
+    buf[0] = 0x00; st = CO5300_QSPI_WriteCmd(0x35, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R53 20
+    buf[0] = 0x20; st = CO5300_QSPI_WriteCmd(0x53, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R51 FF (brightness)
+    buf[0] = 0xFF; st = CO5300_QSPI_WriteCmd(0x51, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R63 FF
+    buf[0] = 0xFF; st = CO5300_QSPI_WriteCmd(0x63, buf, 1);
+    if (st != HAL_OK) return st;
+
+    // R2A 00 10 01 7F -- column: SC=0x0010, SE=0x017F
+    buf[0] = 0x00; buf[1] = 0x10; buf[2] = 0x01; buf[3] = 0x7F;
+    st = CO5300_QSPI_WriteCmd(0x2A, buf, 4);
+    if (st != HAL_OK) return st;
+
+    // R2B 00 00 01 BF -- row: SP=0x0000, EP=0x01BF
+    buf[0] = 0x00; buf[1] = 0x00; buf[2] = 0x01; buf[3] = 0xBF;
+    st = CO5300_QSPI_WriteCmd(0x2B, buf, 4);
+    if (st != HAL_OK) return st;
+
+    // R11 Sleep Out
+    st = CO5300_QSPI_WriteCmd(0x11, NULL, 0);
+    if (st != HAL_OK) return st;
+
+    HAL_Delay(60);
+
+    // R29 Display ON
+    st = CO5300_QSPI_WriteCmd(0x29, NULL, 0);
+    return st;
+}
+
+HAL_StatusTypeDef CO5300_QSPI_EnterQuadMode() {
+    OSPI_RegularCmdTypeDef c = {0};
+    c.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
+    c.Instruction       = 0x38;                 
+    c.AddressMode       = HAL_OSPI_ADDRESS_NONE;
+    c.AlternateBytesMode= HAL_OSPI_ALTERNATE_BYTES_NONE;
+    c.DataMode          = HAL_OSPI_DATA_NONE;
+    c.SIOOMode          = HAL_OSPI_SIOO_INST_EVERY_CMD;
+    return HAL_OSPI_Command(&hospi1, &c, HAL_MAX_DELAY);
+}
+
+HAL_StatusTypeDef CO5300_QSPI_EnterSingleMode() {
+    OSPI_RegularCmdTypeDef c = {0};
+    c.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
+    c.Instruction       = 0xFF;
+    c.AddressMode       = HAL_OSPI_ADDRESS_NONE;
+    c.AlternateBytesMode= HAL_OSPI_ALTERNATE_BYTES_NONE;
+    c.DataMode          = HAL_OSPI_DATA_NONE;
+    c.SIOOMode          = HAL_OSPI_SIOO_INST_EVERY_CMD;
+    return HAL_OSPI_Command(&hospi1, &c, HAL_MAX_DELAY);
+}
+
+// --- set window by x0/x1,y0/y1 in *controller* coordinates (already offset/applied) ---
+HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
+    //uint8_t cas[4] = { x0 >> 8, x0 & 0xFF, x1 >> 8, x1 & 0xFF };
+    uint8_t cas[4] = { (x0 >> 8) & 0x03,  // SC[9:8]
+                       x0 & 0xFF,         // SC[7:0]
+                       (x1 >> 8) & 0x03,  // SE[9:8]
+                       x1 & 0xFF };       // SE[7:0]
+
+    uint8_t ras[4] = { (y0 >> 8) & 0x03,  // SP[9:8]
+                       y0 & 0xFF,         // SP[7:0]
+                       (y1 >> 8) & 0x03,  // EP[9:8]
+                       y1 & 0xFF };       // EP[7:0]
+
+    HAL_StatusTypeDef st;
+    st = CO5300_QSPI_WriteCmd(0x2A, cas, 4);  // CASET
+    if (st != HAL_OK) return st;
+    st = CO5300_QSPI_WriteCmd(0x2B, ras, 4);  // RASET
+    return st;
+}
+
+HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels,
+                                                 uint32_t len)
+{
+    HAL_StatusTypeDef st;
+    OSPI_RegularCmdTypeDef c;
+    memset(&c, 0, sizeof(c));
+
+    st = CO5300_QSPI_EnterSingleMode();
+
+
+    st = CO5300_SetWindow(0,
+                          0,
+                          (uint16_t)(PANEL_WIDTH - 1),
+                          (uint16_t)(PANEL_HEIGHT - 1));
+    HAL_Delay(1);
+
+    st = CO5300_QSPI_EnterQuadMode();
+    HAL_Delay(1);
+
+    while (len) {
+        uint32_t n = (len > OSPI_DMA_MAX_BYTES) ? OSPI_DMA_MAX_BYTES : len;
+
+        /*
+        c.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
+        c.FlashId            = HAL_OSPI_FLASH_ID_1;
+
+        c.Instruction        = 0x02;
+        c.InstructionSize    = HAL_OSPI_INSTRUCTION_8_BITS;
+        c.InstructionMode    = HAL_OSPI_INSTRUCTION_1_LINE;
+
+        c.AddressMode        = HAL_OSPI_ADDRESS_1_LINE;
+        c.AddressSize        = HAL_OSPI_ADDRESS_24_BITS;
+        c.Address            = 0x003C00;
+
+        c.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
+        c.DataMode           = HAL_OSPI_DATA_1_LINE;
+        c.NbData             = n;
+        c.DummyCycles        = 0;
+        c.SIOOMode           = HAL_OSPI_SIOO_INST_EVERY_CMD;
+        */
+
+        c.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
+        c.FlashId            = HAL_OSPI_FLASH_ID_1;
+
+        c.Instruction        = 0x32;
+        c.InstructionSize    = HAL_OSPI_INSTRUCTION_8_BITS;
+        c.InstructionMode    = HAL_OSPI_INSTRUCTION_4_LINES;
+
+        c.Address            = 0x003C00;
+        c.AddressSize        = HAL_OSPI_ADDRESS_24_BITS;
+        c.AddressMode        = HAL_OSPI_ADDRESS_4_LINES;
+
+        c.DataMode           = HAL_OSPI_DATA_4_LINES;
+        c.NbData             = n;
+
+        c.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
+        c.DummyCycles        = 0;
+        c.SIOOMode           = HAL_OSPI_SIOO_INST_ONLY_FIRST_CMD;
+
+        st = HAL_OSPI_Command(&hospi1, &c, HAL_MAX_DELAY);
+        if (st != HAL_OK) return st;
+
+        st = HAL_OSPI_Transmit_DMA(&hospi1, (uint8_t*)pixels);
+        if (st != HAL_OK) {
+            return st;
+        }
+
+        while (HAL_OSPI_GetState(&hospi1) != HAL_OSPI_STATE_READY) {
+            HAL_Delay(1);
+        }
+
+        pixels += n;
+        len    -= n;
+    }
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef CO5300_WritePixels_4line(const uint8_t *pixels, uint32_t len) {
+    OSPI_RegularCmdTypeDef sCommand = {0};
+
+    sCommand.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
+    sCommand.FlashId            = HAL_OSPI_FLASH_ID_1;
+
+    sCommand.Instruction        = 0x32;
+    sCommand.InstructionSize    = HAL_OSPI_INSTRUCTION_8_BITS;
+    sCommand.InstructionMode    = HAL_OSPI_INSTRUCTION_4_LINES;
+
+    sCommand.Address            = 0x002C00;
+    sCommand.AddressSize        = HAL_OSPI_ADDRESS_24_BITS;
+    sCommand.AddressMode        = HAL_OSPI_ADDRESS_4_LINES;
+
+    sCommand.DataMode           = HAL_OSPI_DATA_4_LINES;
+    sCommand.NbData             = len;
+
+    sCommand.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
+    sCommand.DummyCycles        = 0;
+    sCommand.SIOOMode           = HAL_OSPI_SIOO_INST_EVERY_CMD;
+
+    if (HAL_OSPI_Command(&hospi1, &sCommand, HAL_MAX_DELAY) != HAL_OK)
+        return HAL_ERROR;
+
+    return HAL_OSPI_Transmit(&hospi1, (uint8_t*)pixels, HAL_MAX_DELAY);
+}
+
+
+HAL_StatusTypeDef CST820_ReadTouch(CST820_TouchData *touch) {
+    uint8_t buf[8] = {0};
+
+    // Read 8 bytes starting from 0x21
+    if (HAL_I2C_Mem_Read(&hi2c1, CST820_I2C_ADDR, CST820_TP_DATA_REG,
+                         I2C_MEMADD_SIZE_8BIT, buf, sizeof(buf), HAL_MAX_DELAY) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    // buf[0] = gesture ID (optional)
+    // buf[1] = number of touches (1 or 2)
+    touch->touch_count = buf[1] & 0x0F;
+
+    if (touch->touch_count > 0) {
+        // First touch
+        touch->x1 = ((buf[2] & 0x0F) << 8) | buf[3];  // X high 4 bits + low 8 bits
+        touch->y1 = ((buf[4] & 0x0F) << 8) | buf[5];  // Y high 4 bits + low 8 bits
+    }
+
+    if (touch->touch_count > 1) {
+        // Second touch
+        touch->x2 = ((buf[6] & 0x0F) << 8) | buf[7];
+        touch->y2 = ((buf[8] & 0x0F) << 8) | buf[9];
+    }
+
+    return HAL_OK;
+}

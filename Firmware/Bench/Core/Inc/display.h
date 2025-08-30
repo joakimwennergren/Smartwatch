@@ -9,22 +9,25 @@
 #define INC_DISPLAY_H_
 
 #include "main.h"
+#include "util.h"
 
 // CST820 7-bit I2C address (shifted left by 1 for HAL)
-#define CST820_I2C_ADDR  (0x15 << 1)
+#define CST820_I2C_ADDR  		(0x15 << 1)
 
 // Touch point data register
-#define CST820_TP_DATA_REG   0x21
+#define CST820_TP_DATA_REG   	(0x21)
 
-// Panel geometry / pixel format (RGB565 => 2 bytes per pixel)
-#define PANEL_WIDTH          (368 + 16)
-#define PANEL_HEIGHT         (448)
-#define PIXEL_BYTES          (1)
-#define FRAMEBUFFER_SIZE     (PANEL_WIDTH * PANEL_HEIGHT * PIXEL_BYTES)
+// TP and DISP reset delay
+#define RST_DELAY				(32)
 
+// safe per DMA block
+#define OSPI_DMA_MAX_BYTES    	(65532u)
 
-// Safe chunk size (multiple of 4)
-#define OSPI_DMA_MAX_BYTES  (65532u)     // safe, 4-byte aligned
+// Panel geometry / pixel format (RGB565 => 1 bytes per pixel)
+#define PANEL_WIDTH          	(368 + 16)
+#define PANEL_HEIGHT         	(448)
+#define PIXEL_BYTES          	(1)
+#define FRAMEBUFFER_SIZE     	(PANEL_WIDTH * PANEL_HEIGHT * PIXEL_BYTES)
 
 /**
  * @brief Structure to hold touch data from the CST820 touch controller.
@@ -44,19 +47,13 @@ typedef struct {
     uint16_t x2, y2;
 } CST820_TouchData;
 
+extern HAL_DMA_CallbackIDTypeDef dma_callback_id;
 
-#define OSPI_DMA_MAX_BYTES    65532u   // safe per DMA block; keep multiple of 4 if possible
+void HAL_OSPI_TxCpltCallback(OSPI_HandleTypeDef *h);
 
+void reset_display();
 
-
-/**
- * @brief External frame buffers used for display rendering.
- *
- * These buffers are used to store pixel data for the display.
- * - frame_buffer: Primary frame buffer.
- * - frame_buffer2: Secondary frame buffer, can be used for double buffering or off-screen rendering.
- */
-//extern uint8_t frame_buffer[FRAMEBUFFER_SIZE];
+void reset_touchcontroller();
 
 /**
  * @brief Sends a command along with optional parameters to the CO5300 display via QSPI.
@@ -85,7 +82,6 @@ HAL_StatusTypeDef CO5300_QSPI_WriteCmd(uint8_t cmd, const uint8_t *params, uint3
  */
 HAL_StatusTypeDef CO5300_SendInitSequence();
 
-
 /**
  * @brief Enters the Quad mode for the CO5300 QSPI device.
  *
@@ -98,6 +94,8 @@ HAL_StatusTypeDef CO5300_SendInitSequence();
  * @retval HAL_TIMEOUT The operation timed out.
  */
 HAL_StatusTypeDef CO5300_QSPI_EnterQuadMode();
+
+HAL_StatusTypeDef CO5300_QSPI_EnterSingleMode();
 
 /**
  * @brief Writes a buffer of pixel data to the CO5300 display.
@@ -117,34 +115,7 @@ HAL_StatusTypeDef CO5300_QSPI_EnterQuadMode();
 HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels, uint32_t len);
 
 
-// --- set window by x0/x1,y0/y1 in *controller* coordinates (already offset/applied) ---
 HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
-
-// Start a frame: sets window, then streams 'bytes' from 'buf' in chunks.
-// - w,h: window size (in pixels). Make sure 'bytes == w*h*2' for RGB565.
-// - qpi_instr: 0 if you DID NOT send 0x38 (1-line instr/addr), 1 if you did.
-// - data_4_lines: 0 for 1-line pixel payload (slow), 1 for 4-line payload (fast).
-HAL_StatusTypeDef CO5300_PushFrame_DMA(OSPI_HandleTypeDef *hospi,
-                                       uint16_t x, uint16_t y, uint16_t w, uint16_t h,
-                                       const void *buf, uint32_t bytes,
-                                       uint8_t qpi_instr, uint8_t data_4_lines);
-
-/**
- * @brief Writes a buffer of pixel data to the CO5300 display.
- *
- * This function sends a buffer of pixel data to the CO5300 display controller,
- * The length of the pixel data to be written
- * is specified by the 'len' parameter.
- *
- * @param pixels Pointer to the buffer containing the pixel data to be written.
- * @param len    Number of bytes in the pixel data buffer.
- * @return HAL status code indicating the result of the operation.
- *         - HAL_OK: Operation completed successfully.
- *         - HAL_ERROR: An error occurred during the operation.
- *         - HAL_BUSY: The peripheral is busy.
- *         - HAL_TIMEOUT: Operation timed out.
- */
-HAL_StatusTypeDef CO5300_WritePixels_1line(const uint8_t *pixels, uint32_t len);
 
 /**
  * @brief Writes pixel data to the CO5300 display in 4-line mode.
@@ -157,7 +128,7 @@ HAL_StatusTypeDef CO5300_WritePixels_1line(const uint8_t *pixels, uint32_t len);
  * @param len    Length of the pixel data buffer in bytes.
  * @return HAL_StatusTypeDef HAL_OK if successful, or an appropriate HAL error code.
  */
-HAL_StatusTypeDef CO5300_WritePixels_4line(const uint8_t *pixels, uint32_t len);
+//HAL_StatusTypeDef CO5300_WritePixels_4line(const uint8_t *pixels, uint32_t len);
 
 /**
  * @brief Reads touch data from the CST820 touch controller.

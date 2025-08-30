@@ -1,0 +1,44 @@
+/*
+ * gui.c
+ *
+ *  Created on: Aug 30, 2025
+ *      Author: joakim-wennergren
+ */
+#include "gui.h"
+
+CST820_TouchData td;
+static lv_color16_t frame_buffer[PANEL_WIDTH * PANEL_HEIGHT];
+
+static void lvgl_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *px_map) {
+    const uint32_t width  = area->x2 - area->x1 + 1;
+    const uint32_t height = area->y2 - area->y1 + 1;
+    const uint32_t num_bytes = width * height * sizeof(lv_color16_t);
+
+    lv_draw_sw_rgb565_swap(px_map, width * height);
+    CO5300_WritePixels_DMA_chunked(px_map, num_bytes);
+    lv_display_flush_ready(display);
+}
+
+static void input_read_cb(lv_indev_t * indev, lv_indev_data_t * data)
+{
+    if(td.touch_count > 0) {
+        data->point.x = td.x1;
+        data->point.y = td.y1;
+        data->state = LV_INDEV_STATE_PRESSED;
+    } else {
+        data->state = LV_INDEV_STATE_RELEASED;
+    }
+}
+
+void initialize_lvgl() {
+	lv_init();
+
+	lv_display_t *display_g = lv_display_create(PANEL_WIDTH, PANEL_HEIGHT);
+	lv_display_set_color_format(display_g, LV_COLOR_FORMAT_RGB565);
+	lv_display_set_flush_cb(display_g, lvgl_flush_cb);
+	lv_display_set_buffers(display_g, frame_buffer, NULL, sizeof(frame_buffer), LV_DISPLAY_RENDER_MODE_FULL);
+
+	lv_indev_t *touch = lv_indev_create();
+	lv_indev_set_type(touch, LV_INDEV_TYPE_POINTER);
+	lv_indev_set_read_cb(touch, input_read_cb);
+}

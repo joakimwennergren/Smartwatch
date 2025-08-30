@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="false"/>
+	<list key="searchhistory">
+		<item value="RTC_Read"/>
+		<item value="header"/>
+		<item value="Memory region"/>
+		<item value="ospi"/>
+		<item value="id"/>
+		<item value="td"/>
+		<item value="sys_tick"/>
+		<item value="systick"/>
+		<item value="sys"/>
+		<item value="gui_tick_task"/>
+		<item value="tick"/>
+		<item value="buf_1"/>
+		<item value="LV_ME"/>
+		<item value="gui_task"/>
+		<item value="flush"/>
+	</list>
+</section>

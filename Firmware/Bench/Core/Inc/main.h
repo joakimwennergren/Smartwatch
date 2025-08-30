@@ -41,6 +41,12 @@ extern I2C_HandleTypeDef hi2c1;
 
 extern OSPI_HandleTypeDef hospi1;
 
+extern DMA_HandleTypeDef handle_GPDMA1_Channel2;
+
+extern RTC_HandleTypeDef hrtc;
+
+extern TIM_HandleTypeDef htim16;
+
 extern UART_HandleTypeDef huart4;
 
 

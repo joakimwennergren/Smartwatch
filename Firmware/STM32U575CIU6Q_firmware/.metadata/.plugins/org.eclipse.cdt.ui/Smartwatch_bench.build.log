@@ -1,70 +1,50 @@
-23:03:47 **** Incremental Build of configuration Debug for project Smartwatch_bench ****
+17:28:23 **** Incremental Build of configuration Debug for project Smartwatch_bench ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32U575xx -c -I../Core/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U5xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include/ -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ -I../Middlewares/Third_Party/CMSIS/RTOS2/Include/ -I"/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Middlewares" -I"/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Core/Src/main.c:28:
-../Core/Inc/display.h:48: warning: "OSPI_DMA_MAX_BYTES" redefined
-   48 | #define OSPI_DMA_MAX_BYTES    65532u   // safe per DMA block; keep multiple of 4 if possible
-      | 
-../Core/Inc/display.h:27: note: this is the location of the previous definition
-   27 | #define OSPI_DMA_MAX_BYTES  (65532u)     // safe, 4-byte aligned
-      | 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32U575xx -c -I../Core/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U5xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include/ -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ -I../Middlewares/Third_Party/CMSIS/RTOS2/Include/ -I"/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_RTC_AlarmAEventCallback':
-../Core/Src/main.c:241:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  241 |     sprintf(Buffer, "RTC 1 minute tick!");
+../Core/Src/main.c:90:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   90 |     sprintf(Buffer, "RTC 1 minute tick!");
       |             ^~~~~~
       |             |
       |             uint8_t * {aka unsigned char *}
-In file included from ../Core/Src/main.c:26:
+In file included from ../Core/Src/main.c:25:
 /home/joakim-wennergren/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:242:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  242 |     HAL_UART_Transmit(&huart4, (uint8_t*)Buffer, strlen(Buffer), 1000);
+../Core/Src/main.c:91:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   91 |     HAL_UART_Transmit(&huart4, (uint8_t*)Buffer, strlen(Buffer), 1000);
       |                                                         ^~~~~~
       |                                                         |
       |                                                         uint8_t * {aka unsigned char *}
-In file included from ../Core/Src/main.c:25:
+In file included from ../Core/Src/main.c:24:
 /home/joakim-wennergren/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    41 | size_t   strlen (const char *);
       |                  ^~~~~~~~~~~~
 ../Core/Src/main.c: In function 'RTC_SetupOnce':
-../Core/Src/main.c:248:25: warning: unused variable 'sDate' [-Wunused-variable]
-  248 |         RTC_DateTypeDef sDate = {0};
+../Core/Src/main.c:97:25: warning: unused variable 'sDate' [-Wunused-variable]
+   97 |         RTC_DateTypeDef sDate = {0};
       |                         ^~~~~
 ../Core/Src/main.c: In function 'create_line':
-../Core/Src/main.c:365:30: warning: passing argument 2 of 'lv_line_set_points' from incompatible pointer type [-Wincompatible-pointer-types]
-  365 |     lv_line_set_points(line, line_points, 2);
+../Core/Src/main.c:200:30: warning: passing argument 2 of 'lv_line_set_points' from incompatible pointer type [-Wincompatible-pointer-types]
+  200 |     lv_line_set_points(line, line_points, 2);
       |                              ^~~~~~~~~~~
       |                              |
       |                              lv_point_t *
 In file included from /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/lvgl.h:69,
-                 from ../Core/Src/main.c:29:
+                 from ../Core/Src/main.c:28:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/widgets/line/lv_line.h:50:66: note: expected 'const lv_point_precise_t *' but argument is of type 'lv_point_t *'
    50 | void lv_line_set_points(lv_obj_t * obj, const lv_point_precise_t points[], uint32_t point_num);
       |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
 ../Core/Src/main.c: In function 'set_date_label':
-../Core/Src/main.c:384:32: warning: too many arguments for format [-Wformat-extra-args]
-  384 |     snprintf(buf, sizeof(buf), "%s %d Aug 2025",
+../Core/Src/main.c:217:32: warning: too many arguments for format [-Wformat-extra-args]
+  217 |     snprintf(buf, sizeof(buf), "%s %d Aug 2025",
       |                                ^~~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'stars_timer_cb':
-../Core/Src/main.c:459:62: warning: passing argument 1 of 'lv_event_get_user_data' from incompatible pointer type [-Wincompatible-pointer-types]
-  459 |     stars_ctx_t *ctx = (stars_ctx_t *)lv_event_get_user_data(tmr);
-      |                                                              ^~~
-      |                                                              |
-      |                                                              lv_timer_t * {aka struct _lv_timer_t *}
-In file included from /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/core/../display/lv_display.h:18,
-                 from /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/core/lv_obj_tree.h:18,
-                 from /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/core/lv_obj.h:24,
-                 from /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/lvgl.h:43:
-/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/core/../display/../misc/lv_event.h:189:44: note: expected 'lv_event_t *' {aka 'struct _lv_event_t *'} but argument is of type 'lv_timer_t *' {aka 'struct _lv_timer_t *'}
-  189 | void * lv_event_get_user_data(lv_event_t * e);
-      |                               ~~~~~~~~~~~~~^
 ../Core/Src/main.c: In function 'MX_GPDMA1_Init':
-../Core/Src/main.c:777:59: warning: passing argument 3 of 'HAL_DMA_RegisterCallback' from incompatible pointer type [-Wincompatible-pointer-types]
-  777 |     HAL_DMA_RegisterCallback(&handle_GPDMA1_Channel2, id, HAL_OSPI_TxCpltCallback);
-      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~
-      |                                                           |
-      |                                                           void (*)(OSPI_HandleTypeDef *)
+../Core/Src/main.c:434:72: warning: passing argument 3 of 'HAL_DMA_RegisterCallback' from incompatible pointer type [-Wincompatible-pointer-types]
+  434 |     HAL_DMA_RegisterCallback(&handle_GPDMA1_Channel2, dma_callback_id, HAL_OSPI_TxCpltCallback);
+      |                                                                        ^~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                        |
+      |                                                                        void (*)(OSPI_HandleTypeDef *)
 In file included from ../Core/Inc/stm32u5xx_hal_conf.h:284,
                  from ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
@@ -72,21 +52,17 @@ In file included from ../Core/Inc/stm32u5xx_hal_conf.h:284,
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma.h:743:58: note: expected 'void (* const)(DMA_HandleTypeDef * const)' {aka 'void (* const)(struct __DMA_HandleTypeDef * const)'} but argument is of type 'void (*)(OSPI_HandleTypeDef *)'
   743 |                                            void (*const  pCallback)(DMA_HandleTypeDef *const _hdma));
       |                                            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:341:13: warning: 'clock_timer_cb' defined but not used [-Wunused-function]
-  341 | static void clock_timer_cb(lv_timer_t *t)
-      |             ^~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "Smartwatch_bench.elf" @"objects.list"   -mcpu=cortex-m33 -T"/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/STM32U575ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Smartwatch_bench.map" -Wl,--gc-sections -static -u _printf_float -u _printf_float -z noexecstack --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Smartwatch_bench.elf
  
 arm-none-eabi-size  Smartwatch_bench.elf 
 arm-none-eabi-objdump -h -S Smartwatch_bench.elf  > "Smartwatch_bench.list"
    text	   data	    bss	    dec	    hex	filename
- 469565	    636	 397172	 867373	  d3c2d	Smartwatch_bench.elf
+ 972089	    632	 386000	1358721	 14bb81	Smartwatch_bench.elf
 Finished building: default.size.stdout
  
 Finished building: Smartwatch_bench.list
  
 
-23:03:51 Build Finished. 0 errors, 9 warnings. (took 4s.89ms)
+17:28:26 Build Finished. 0 errors, 6 warnings. (took 2s.315ms)
 

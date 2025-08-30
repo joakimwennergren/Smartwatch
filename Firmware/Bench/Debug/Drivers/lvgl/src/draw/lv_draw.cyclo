@@ -4,10 +4,10 @@
 ../Drivers/lvgl/src/draw/lv_draw.c:85:8:lv_draw_create_unit	2
 ../Drivers/lvgl/src/draw/lv_draw.c:99:18:lv_draw_add_task	5
 ../Drivers/lvgl/src/draw/lv_draw.c:132:6:lv_draw_finalize_task_creation	9
-../Drivers/lvgl/src/draw/lv_draw.c:193:6:lv_draw_wait_for_finish	3
+../Drivers/lvgl/src/draw/lv_draw.c:193:6:lv_draw_wait_for_finish	1
 ../Drivers/lvgl/src/draw/lv_draw.c:212:6:lv_draw_dispatch	5
 ../Drivers/lvgl/src/draw/lv_draw.c:233:6:lv_draw_dispatch_layer	15
-../Drivers/lvgl/src/draw/lv_draw.c:295:6:lv_draw_dispatch_wait_for_request	1
+../Drivers/lvgl/src/draw/lv_draw.c:295:6:lv_draw_dispatch_wait_for_request	2
 ../Drivers/lvgl/src/draw/lv_draw.c:307:6:lv_draw_dispatch_request	1
 ../Drivers/lvgl/src/draw/lv_draw.c:318:10:lv_draw_get_unit_count	1
 ../Drivers/lvgl/src/draw/lv_draw.c:323:18:lv_draw_get_available_task	2

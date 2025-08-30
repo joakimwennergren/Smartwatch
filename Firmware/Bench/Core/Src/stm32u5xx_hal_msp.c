@@ -72,8 +72,6 @@ void HAL_MspInit(void)
   HAL_PWREx_EnableVddIO2();
 
   /* System interrupt init*/
-  /* PendSV_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
 
   /* USER CODE BEGIN MspInit 1 */
 
@@ -247,7 +245,7 @@ void HAL_OSPI_MspInit(OSPI_HandleTypeDef* hospi)
     }
 
     /* OCTOSPI1 interrupt Init */
-    HAL_NVIC_SetPriority(OCTOSPI1_IRQn, 5, 0);
+    HAL_NVIC_SetPriority(OCTOSPI1_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(OCTOSPI1_IRQn);
     /* USER CODE BEGIN OCTOSPI1_MspInit 1 */
 

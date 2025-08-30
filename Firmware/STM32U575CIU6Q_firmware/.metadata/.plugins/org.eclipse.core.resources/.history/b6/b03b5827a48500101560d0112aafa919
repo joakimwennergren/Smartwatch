@@ -1,0 +1,202 @@
+/*
+ * gui.c
+ *
+ *  Created on: Aug 30, 2025
+ *      Author: joakim-wennergren
+ */
+#include "gui.h"
+
+
+CST820_TouchData td;
+static lv_color16_t frame_buffer[PANEL_WIDTH * PANEL_HEIGHT];
+
+static void lvgl_flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map) {
+
+    int width  = area->x2 - area->x1 + 1;
+    int height = area->y2 - area->y1 + 1;
+
+    const size_t size = (size_t)width * (size_t)height * sizeof(lv_color16_t);
+
+    lv_draw_sw_rgb565_swap((uint16_t *)px_map, width * height);
+    CO5300_WritePixels_DMA_chunked(px_map, size);
+    lv_display_flush_ready(display);
+}
+
+static void input_read_cb(lv_indev_t * indev, lv_indev_data_t * data)
+{
+    if(td.touch_count > 0) {
+        data->point.x = td.x1;
+        data->point.y = td.y1;
+        data->state = LV_INDEV_STATE_PRESSED;
+    } else {
+        data->state = LV_INDEV_STATE_RELEASED;
+    }
+}
+
+void initialize_lvgl() {
+	lv_init();
+	lv_display_t *display_g = lv_display_create(PANEL_WIDTH, PANEL_HEIGHT);
+	lv_display_set_color_format(display_g, LV_COLOR_FORMAT_RGB565);
+	lv_display_set_flush_cb(display_g, lvgl_flush_cb);
+	lv_display_set_buffers(display_g, frame_buffer, NULL, sizeof(buf_1), LV_DISPLAY_RENDER_MODE_FULL);
+
+	lv_indev_t *touch = lv_indev_create();
+	lv_indev_set_type(touch, LV_INDEV_TYPE_POINTER);
+	lv_indev_set_read_cb(touch, input_read_cb);
+}
+
+static void draw_background(void) {
+    // Fill with a solid midnight blue
+    lv_canvas_fill_bg(s_canvas, lv_color_hex(0x0B1D2B), LV_OPA_COVER);
+
+    // Optional very subtle vignette using a semi-transparent dark rect border
+    lv_draw_rect_dsc_t vign;
+    lv_draw_rect_dsc_init(&vign);
+    vign.bg_opa = LV_OPA_TRANSP;
+    vign.border_color = lv_color_hex(0x000812);
+    vign.border_opa = LV_OPA_30;
+    vign.border_width = 12;
+    vign.radius = 0;
+    lv_canvas_draw_rect(s_canvas, 0, 0, SKY_W, SKY_H, &vign);
+}
+
+static void draw_moon(lv_coord_t cx, lv_coord_t cy, lv_coord_t rad) {
+    // Soft glow (bigger, faint)
+    lv_draw_rect_dsc_t glow;
+    lv_draw_rect_dsc_init(&glow);
+    glow.bg_color = lv_color_hex(0xE9F5FF);
+    glow.bg_opa = LV_OPA_20; // faint halo
+    glow.border_opa = LV_OPA_TRANSP;
+    glow.radius = rad + 6;
+    lv_canvas_draw_rect(s_canvas, cx - (rad + 6), cy - (rad + 6),
+                        (rad + 6) * 2, (rad + 6) * 2, &glow);
+
+    // Moon body
+    lv_draw_rect_dsc_t body;
+    lv_draw_rect_dsc_init(&body);
+    body.bg_color = lv_color_hex(0xF5F1C2);
+    body.bg_opa   = LV_OPA_COVER;
+    body.border_opa = LV_OPA_40;
+    body.border_color = lv_color_hex(0xE0DCA8);
+    body.border_width = 2;
+    body.radius = rad;
+    lv_canvas_draw_rect(s_canvas, cx - rad, cy - rad, rad * 2, rad * 2, &body);
+
+    // A few craters (tiny, translucent)
+    for (int i = 0; i < 5; i++) {
+        lv_coord_t rx = (lv_coord_t)lv_rand(-rad + 3, rad - 3);
+        lv_coord_t ry = (lv_coord_t)lv_rand(-rad + 3, rad - 3);
+        lv_coord_t r  = (lv_coord_t)lv_rand(2, 4);
+        // Only draw if inside the circle (cx+rx, cy+ry within radius)
+        if (rx*rx + ry*ry <= (rad - 2) * (rad - 2)) {
+            lv_draw_rect_dsc_t crater;
+            lv_draw_rect_dsc_init(&crater);
+            crater.bg_color = lv_color_hex(0xC7C39A);
+            crater.bg_opa   = LV_OPA_40;
+            crater.border_opa = LV_OPA_TRANSP;
+            crater.radius = r;
+            lv_canvas_draw_rect(s_canvas, cx + rx - r, cy + ry - r, r * 2, r * 2, &crater);
+        }
+    }
+}
+
+static void draw_star_at(lv_coord_t x, lv_coord_t y, uint8_t r, lv_opa_t opa) {
+    // Tiny rounded rects look like soft stars
+    lv_draw_rect_dsc_t d;
+    lv_draw_rect_dsc_init(&d);
+    d.bg_color = lv_color_white();
+    d.bg_opa = opa;
+    d.border_opa = LV_OPA_TRANSP;
+    d.radius = r; // round enough to appear circular at small sizes
+    lv_coord_t s = (lv_coord_t)(r * 2 + 1);
+    lv_canvas_draw_rect(s_canvas, x - r, y - r, s, s, &d);
+
+    // Optional star cross (very faint) for larger stars
+    if (r >= 2 && opa > 140) {
+        lv_draw_line_dsc_t ld;
+        lv_draw_line_dsc_init(&ld);
+        ld.color = lv_color_white();
+        ld.opa = opa / 3;
+        ld.width = 1;
+
+        lv_point_t p[2];
+        p[0].x = x - 3; p[0].y = y;
+        p[1].x = x + 3; p[1].y = y;
+        lv_canvas_draw_line(s_canvas, p, 2, &ld);
+
+        p[0].x = x; p[0].y = y - 3;
+        p[1].x = x; p[1].y = y + 3;
+        lv_canvas_draw_line(s_canvas, p, 2, &ld);
+    }
+}
+
+static void redraw_stars(void) {
+    for (uint16_t i = 0; i < STAR_COUNT; i++) {
+        // brightness: base + amp * normalized_sin
+        // lv_trigo_sin uses 0..3599 (0.1 deg); returns -32768..32767
+        int32_t s = lv_trigo_sin(s_stars[i].angle);
+        // Map to 0..255
+        uint8_t tw = (uint8_t)((s + 32768) * 255 / 65535);
+        int16_t opa = (int16_t)s_stars[i].base_opa + ((int16_t)s_stars[i].amp * (int16_t)tw) / 255;
+        if (opa < 0) opa = 0; if (opa > 255) opa = 255;
+
+        draw_star_at(s_stars[i].x, s_stars[i].y, s_stars[i].r, (lv_opa_t)opa);
+    }
+}
+
+static void twinkle_timer_cb(lv_timer_t *t) {
+    LV_UNUSED(t);
+
+    // Repaint the background once every N frames to prevent overdraw artifacts on some GPUs.
+    // For software rendering it's fine to just redraw stars on top; still, a periodic refresh helps.
+    static uint8_t frame = 0;
+    if ((frame++ % 40) == 0) {
+        draw_background();
+        draw_moon(SKY_W * 3 / 4, SKY_H / 4, 18);
+    }
+
+    // Advance angles and draw stars
+    for (uint16_t i = 0; i < STAR_COUNT; i++) {
+        s_stars[i].angle = (uint16_t)((s_stars[i].angle + s_stars[i].speed) % 3600);
+    }
+    redraw_stars();
+
+    // Tell LVGL this object changed visually
+    lv_obj_invalidate(s_canvas);
+}
+
+lv_obj_t *night_sky_create(lv_obj_t *parent) {
+    // 1) Canvas
+    s_canvas = lv_canvas_create(parent);
+    lv_canvas_set_buffer(s_canvas, s_buf, SKY_W, SKY_H, LV_COLOR_FORMAT_RGB565);
+    lv_obj_set_size(s_canvas, SKY_W, SKY_H);
+
+    // 2) Background (deep blue)
+    draw_background();
+
+    // 3) Moon (soft glow + body)
+    draw_moon(SKY_W * 3 / 4, SKY_H / 4, 18);
+
+    // 4) Stars
+    if (!s_stars) s_stars = (star_t*)lv_mem_alloc(sizeof(star_t) * STAR_COUNT);
+    lv_rand_set_seed(lv_tick_get()); // ensure varied distribution across runs
+
+    for (uint16_t i = 0; i < STAR_COUNT; i++) {
+        s_stars[i].x = (lv_coord_t)lv_rand(4, SKY_W - 5);
+        s_stars[i].y = (lv_coord_t)lv_rand(4, SKY_H - 5);
+        s_stars[i].r = (uint8_t)lv_rand(1, 2);
+        s_stars[i].angle = (uint16_t)lv_rand(0, 3599);
+        s_stars[i].speed = (uint8_t)lv_rand(1, 5);
+        s_stars[i].base_opa = (uint8_t)lv_rand(80, 200);
+        s_stars[i].amp = (uint8_t)lv_rand(20, 75);
+    }
+
+    // First render of the stars
+    redraw_stars();
+
+    // 5) Twinkle animation
+    lv_timer_create(twinkle_timer_cb, 50, NULL); // ~20 FPS
+
+    return s_canvas;
+}
+

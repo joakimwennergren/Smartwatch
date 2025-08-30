@@ -1,0 +1,115 @@
+/*
+ * gui.h
+ *
+ *  Created on: Aug 30, 2025
+ *      Author: joakim-wennergren
+ */
+
+#ifndef INC_GUI_H_
+#define INC_GUI_H_
+
+#include <stdlib.h>
+#include <string.h>
+#include "display.h"
+#include "lvgl.h"
+
+/* --- tweak these --- */
+#define SKY_W 240
+#define SKY_H 135
+#define STAR_COUNT 220
+
+/* simple LCG for deterministic "random" stars (no libc rand needed) */
+static uint32_t rng_state = 0xC0FFEE42u;
+static inline uint32_t lcg(void) {
+    rng_state = rng_state * 1664525u + 1013904223u;
+    return rng_state;
+}
+
+static inline bool in_bounds(int x, int y) {
+    return (x >= 0 && x < SKY_W && y >= 0 && y < SKY_H);
+}
+
+static void draw_filled_disc(lv_obj_t *canvas, int cx, int cy, int r, lv_color_t color) {
+    int rr = r * r;
+    for (int dy = -r; dy <= r; dy++) {
+        for (int dx = -r; dx <= r; dx++) {
+            if (dx*dx + dy*dy <= rr) {
+                int x = cx + dx, y = cy + dy;
+                if (in_bounds(x, y)) lv_canvas_set_px(canvas, x, y, color, LV_OPA_COVER);
+            }
+        }
+    }
+}
+
+static void draw_star(lv_obj_t *canvas, int x, int y, int kind) {
+    /* kind: 0 = single pixel, 1 = plus, 2 = small sparkle */
+    if (!in_bounds(x, y)) return;
+    lv_canvas_set_px(canvas, x, y, lv_color_white(), LV_OPA_COVER);
+
+    if (kind >= 1) {
+        int dx[4] = {1,-1,0,0}, dy[4] = {0,0,1,-1};
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i], ny = y + dy[i];
+            if (in_bounds(nx, ny)) lv_canvas_set_px(canvas, nx, ny, lv_color_white(), LV_OPA_60);
+        }
+    }
+    if (kind >= 2) {
+        int dx2[4] = {1,1,-1,-1}, dy2[4] = {1,-1,1,-1};
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx2[i], ny = y + dy2[i];
+            if (in_bounds(nx, ny)) lv_canvas_set_px(canvas, nx, ny, lv_color_white(), LV_OPA_40);
+        }
+    }
+}
+
+lv_obj_t * create_night_sky_canvas(lv_obj_t *parent)
+{
+    /* Backing buffer: true-color (no alpha). Keep it static so it outlives the object. */
+    static uint8_t canvas_buf[LV_CANVAS_BUF_SIZE_TRUE_COLOR(SKY_W, SKY_H)];
+
+    lv_obj_t *canvas = lv_canvas_create(parent);
+    lv_canvas_set_buffer(canvas, canvas_buf, SKY_W, SKY_H, LV_IMG_CF_TRUE_COLOR);
+    lv_obj_set_size(canvas, SKY_W, SKY_H);
+
+    /* Gradient background (top: deep blue -> bottom: near-black) */
+    lv_color_t top    = lv_color_hex(0x0B1D43);  /* midnight blue */
+    lv_color_t bottom = lv_color_hex(0x000010);  /* almost black  */
+    for (int y = 0; y < SKY_H; y++) {
+        uint8_t t = (uint8_t)((y * 255) / (SKY_H - 1)); /* 0..255 */
+        lv_color_t row_color = lv_color_mix(bottom, top, 255 - t);
+        for (int x = 0; x < SKY_W; x++) {
+            lv_canvas_set_px(canvas, x, y, row_color, LV_OPA_COVER);
+        }
+    }
+
+    /* Stars: mixture of single pixels and small sparkles */
+    for (int i = 0; i < STAR_COUNT; i++) {
+        int x = (int)(lcg() % SKY_W);
+        int y = (int)(lcg() % SKY_H);
+        /* Bias fewer big sparkles */
+        uint32_t r = lcg() & 0xFF;
+        int kind = (r < 12) ? 2 : (r < 60 ? 1 : 0);
+        draw_star(canvas, x, y, kind);
+    }
+
+    /* Crescent moon (pale yellow disc, then 'cut' with background) */
+    int mx = SKY_W - 40, my = 28, R = 14;
+    lv_color_t moon = lv_color_hex(0xF4E7AA);
+    draw_filled_disc(canvas, mx, my, R, moon);
+    /* carve a crescent by overdrawing with the background color slightly offset */
+    draw_filled_disc(canvas, mx + 5, my, R, lv_color_mix(bottom, top, 128));
+
+    /* Optional: position on screen */
+    lv_obj_center(canvas);
+    return canvas;
+}
+
+extern CST820_TouchData td;
+
+void initialize_lvgl();
+
+/* Public: create the night sky canvas */
+lv_obj_t *night_sky_create(lv_obj_t *parent);
+
+
+#endif /* INC_GUI_H_ */

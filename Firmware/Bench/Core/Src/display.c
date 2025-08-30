@@ -7,19 +7,35 @@
 #include <display.h>
 #include <string.h>
 
-//uint8_t frame_buffer[FRAMEBUFFER_SIZE];
+HAL_DMA_CallbackIDTypeDef dma_callback_id;
+
+void HAL_OSPI_TxCpltCallback(OSPI_HandleTypeDef *h) {}
+
+void reset_display() {
+	HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_SET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_RESET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_SET);
+}
+
+void reset_touchcontroller() {
+	HAL_GPIO_WritePin(TP_RST_GPIO_Port, TP_RST_Pin, GPIO_PIN_SET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(TP_RST_GPIO_Port, TP_RST_Pin, GPIO_PIN_RESET);
+	HAL_Delay(RST_DELAY);
+	HAL_GPIO_WritePin(TP_RST_GPIO_Port, TP_RST_Pin, GPIO_PIN_SET);
+}
 
 HAL_StatusTypeDef CO5300_QSPI_WriteCmd(uint8_t cmd, const uint8_t *params, uint32_t param_len) {
-	OSPI_RegularCmdTypeDef sCommand;
+	OSPI_RegularCmdTypeDef sCommand = {0};
     HAL_StatusTypeDef status;
 
-    memset(&sCommand, 0, sizeof(sCommand));
-
     sCommand.InstructionMode   = HAL_OSPI_INSTRUCTION_1_LINE;
-    sCommand.Instruction       = 0x02; // "Write" instruction per datasheet
+    sCommand.Instruction       = 0x02;
     sCommand.AddressMode       = HAL_OSPI_ADDRESS_1_LINE;
     sCommand.AddressSize       = HAL_OSPI_ADDRESS_24_BITS;
-    sCommand.Address           = ((uint32_t)cmd << 8); // 0x00 CMD 0x00
+    sCommand.Address           = ((uint32_t)cmd << 8);
     sCommand.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
     sCommand.DummyCycles       = 0;
     sCommand.DataMode          = (param_len > 0) ? HAL_OSPI_DATA_1_LINE : HAL_OSPI_DATA_NONE;
@@ -32,6 +48,7 @@ HAL_StatusTypeDef CO5300_QSPI_WriteCmd(uint8_t cmd, const uint8_t *params, uint3
     if (param_len > 0) {
         status = HAL_OSPI_Transmit(&hospi1, (uint8_t *)params, HAL_MAX_DELAY);
     }
+
     return status;
 }
 
@@ -60,7 +77,7 @@ HAL_StatusTypeDef CO5300_SendInitSequence() {
     if (st != HAL_OK) return st;
 
     // R51 FF (brightness)
-    buf[0] = 0xFF; st = CO5300_QSPI_WriteCmd(0x51, buf, 1);
+    buf[0] = 127; st = CO5300_QSPI_WriteCmd(0x51, buf, 1);
     if (st != HAL_OK) return st;
 
     // R63 FF
@@ -85,8 +102,6 @@ HAL_StatusTypeDef CO5300_SendInitSequence() {
 
     // R29 Display ON
     st = CO5300_QSPI_WriteCmd(0x29, NULL, 0);
-
-    HAL_Delay(10);
     return st;
 }
 
@@ -114,7 +129,6 @@ HAL_StatusTypeDef CO5300_QSPI_EnterSingleMode() {
 
 // --- set window by x0/x1,y0/y1 in *controller* coordinates (already offset/applied) ---
 HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
-    //uint8_t cas[4] = { x0 >> 8, x0 & 0xFF, x1 >> 8, x1 & 0xFF };
     uint8_t cas[4] = { (x0 >> 8) & 0x03,  // SC[9:8]
                        x0 & 0xFF,         // SC[7:0]
                        (x1 >> 8) & 0x03,  // SE[9:8]
@@ -133,52 +147,41 @@ HAL_StatusTypeDef CO5300_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16
 }
 
 HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels,
-                                                 uint32_t len)
-{
+                                                 uint32_t len) {
     HAL_StatusTypeDef st;
-    OSPI_RegularCmdTypeDef c;
-
-    memset(&c, 0, sizeof(c));
+    OSPI_RegularCmdTypeDef c = {0};
 
     st = CO5300_QSPI_EnterSingleMode();
-
-
     st = CO5300_SetWindow(0,
                           0,
                           (uint16_t)(PANEL_WIDTH - 1),
                           (uint16_t)(PANEL_HEIGHT - 1));
-    HAL_Delay(1);
-    //st = CO5300_QSPI_EnterQuadMode();
-    HAL_Delay(1);
+    HAL_Delay(2);
+    st = CO5300_QSPI_EnterQuadMode();
+    HAL_Delay(2);
 
     while (len) {
         uint32_t n = (len > OSPI_DMA_MAX_BYTES) ? OSPI_DMA_MAX_BYTES : len;
-        /*
-        if (len > n && line_bytes) {
-            uint32_t aligned = (n / line_bytes) * line_bytes;
-            if (aligned == 0) aligned = line_bytes;
-            n = aligned;
-        }
-        */
 
+        /*
         c.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
         c.FlashId            = HAL_OSPI_FLASH_ID_1;
 
-        c.Instruction        = 0x02;                           // QSPI "command write"
+        c.Instruction        = 0x02;
         c.InstructionSize    = HAL_OSPI_INSTRUCTION_8_BITS;
         c.InstructionMode    = HAL_OSPI_INSTRUCTION_1_LINE;
 
         c.AddressMode        = HAL_OSPI_ADDRESS_1_LINE;
         c.AddressSize        = HAL_OSPI_ADDRESS_24_BITS;
-        c.Address            = 0x003C00;                       // {00,2C,00} RAMWR
+        c.Address            = 0x003C00;
 
         c.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
-        c.DataMode           = HAL_OSPI_DATA_1_LINE;           // or HAL_OSPI_DATA_4_LINES
-        c.NbData             = n;                              // <-- CHUNK SIZE (not len!)
+        c.DataMode           = HAL_OSPI_DATA_1_LINE;
+        c.NbData             = n;
         c.DummyCycles        = 0;
         c.SIOOMode           = HAL_OSPI_SIOO_INST_EVERY_CMD;
+        */
 
-        /*
         c.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
         c.FlashId            = HAL_OSPI_FLASH_ID_1;
 
@@ -196,20 +199,17 @@ HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels,
         c.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
         c.DummyCycles        = 0;
         c.SIOOMode           = HAL_OSPI_SIOO_INST_ONLY_FIRST_CMD;
-        */
 
         st = HAL_OSPI_Command(&hospi1, &c, HAL_MAX_DELAY);
         if (st != HAL_OK) return st;
 
         st = HAL_OSPI_Transmit_DMA(&hospi1, (uint8_t*)pixels);
         if (st != HAL_OK) {
-            printf("OSPI DMA start err=0x%08lX\n", HAL_OSPI_GetError(&hospi1));
             return st;
         }
 
-        // Wait for this chunk to complete (or use TxCplt callback to chain)
         while (HAL_OSPI_GetState(&hospi1) != HAL_OSPI_STATE_READY) {
-            HAL_Delay(100);
+            HAL_Delay(1);
         }
 
         pixels += n;
@@ -218,27 +218,7 @@ HAL_StatusTypeDef CO5300_WritePixels_DMA_chunked(const uint8_t *pixels,
     return HAL_OK;
 }
 
-
-// Your header: 0x02 + {00,2C,00} ; data on 1 line (match your current setup)
-static HAL_StatusTypeDef CO5300_RamWrite_Header(OSPI_HandleTypeDef *h, uint32_t nbytes, uint8_t qpi)
-{
-    OSPI_RegularCmdTypeDef c = {0};
-    c.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
-    c.FlashId            = HAL_OSPI_FLASH_ID_1;
-    c.Instruction        = 0x02;
-    c.InstructionMode    = qpi ? HAL_OSPI_INSTRUCTION_4_LINES : HAL_OSPI_INSTRUCTION_1_LINE;
-    c.InstructionSize    = HAL_OSPI_INSTRUCTION_8_BITS;
-    c.AddressMode        = qpi ? HAL_OSPI_ADDRESS_4_LINES : HAL_OSPI_ADDRESS_1_LINE;
-    c.AddressSize        = HAL_OSPI_ADDRESS_24_BITS;
-    c.Address            = 0x003C00;          // {00, 2C, 00}
-    c.AlternateBytesMode = HAL_OSPI_ALTERNATE_BYTES_NONE;
-    c.DataMode           = HAL_OSPI_DATA_1_LINE;   // keep as you have it
-    c.NbData             = nbytes;
-    c.DummyCycles        = 0;
-    c.SIOOMode           = HAL_OSPI_SIOO_INST_EVERY_CMD;
-    return HAL_OSPI_Command(h, &c, HAL_MAX_DELAY);
-}
-
+/*
 HAL_StatusTypeDef CO5300_WritePixels_4line(const uint8_t *pixels, uint32_t len) {
     OSPI_RegularCmdTypeDef sCommand = {0};
 
@@ -265,7 +245,7 @@ HAL_StatusTypeDef CO5300_WritePixels_4line(const uint8_t *pixels, uint32_t len) 
 
     return HAL_OSPI_Transmit(&hospi1, (uint8_t*)pixels, HAL_MAX_DELAY);
 }
-
+*/
 
 HAL_StatusTypeDef CST820_ReadTouch(CST820_TouchData *touch) {
     uint8_t buf[8] = {0};

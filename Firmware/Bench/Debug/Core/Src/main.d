@@ -34,8 +34,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_uart.h \
  ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_uart_ex.h \
  ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_exti.h \
- ../Middlewares/Third_Party/CMSIS/RTOS2/Include/cmsis_os2.h \
- ../Core/Inc/display.h ../Core/Inc/main.h \
+ ../Core/Inc/display.h ../Core/Inc/main.h ../Core/Inc/util.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/lvgl.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/lv_version.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_init.h \
@@ -97,21 +96,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../lv_conf_internal.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../misc/lv_types.h \
- /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_freertos.h \
- /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- ../Core/Inc/FreeRTOSConfig.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacro.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacrocommon.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os_none.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/lv_cache_lru_ll.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_cache_instance.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_image_header_cache.h \
@@ -480,7 +465,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v8.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v9_0.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v9_1.h \
- ../Core/Inc/roboto_58.h ../Core/Inc/roboto_28.h
+ ../Core/Inc/gui.h ../Core/Inc/display.h ../Core/Inc/roboto_58.h \
+ ../Core/Inc/roboto_28.h
 ../Core/Inc/main.h:
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h:
 ../Core/Inc/stm32u5xx_hal_conf.h:
@@ -517,9 +503,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_uart.h:
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_uart_ex.h:
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_exti.h:
-../Middlewares/Third_Party/CMSIS/RTOS2/Include/cmsis_os2.h:
 ../Core/Inc/display.h:
 ../Core/Inc/main.h:
+../Core/Inc/util.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/lvgl.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/lv_version.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_init.h:
@@ -581,21 +567,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../lv_conf_internal.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../misc/lv_types.h:
-/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_freertos.h:
-/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
-../Core/Inc/FreeRTOSConfig.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
-../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacro.h:
-../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacrocommon.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os_none.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/lv_cache_lru_ll.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_cache_instance.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_image_header_cache.h:
@@ -964,5 +936,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v8.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v9_0.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/lv_api_map_v9_1.h:
+../Core/Inc/gui.h:
+../Core/Inc/display.h:
 ../Core/Inc/roboto_58.h:
 ../Core/Inc/roboto_28.h:

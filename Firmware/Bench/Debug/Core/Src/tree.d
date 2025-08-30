@@ -60,21 +60,7 @@ Core/Src/tree.o: ../Core/Src/tree.c \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../lv_conf_internal.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../misc/lv_types.h \
- /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_freertos.h \
- /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- ../Core/Inc/FreeRTOSConfig.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacro.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacrocommon.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os_none.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/lv_cache_lru_ll.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_cache_instance.h \
  /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_image_header_cache.h \
@@ -504,21 +490,7 @@ Core/Src/tree.o: ../Core/Src/tree.c \
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../lv_conf_internal.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/../misc/lv_types.h:
-/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_freertos.h:
-/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
-../Core/Inc/FreeRTOSConfig.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
-../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacro.h:
-../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portmacrocommon.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+/home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/../../../osal/lv_os_none.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/class/lv_cache_lru_ll.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_cache_instance.h:
 /home/joakim-wennergren/Desktop/Smartwatch/Firmware/Bench/Drivers/lvgl/src/misc/cache/instance/lv_image_header_cache.h:

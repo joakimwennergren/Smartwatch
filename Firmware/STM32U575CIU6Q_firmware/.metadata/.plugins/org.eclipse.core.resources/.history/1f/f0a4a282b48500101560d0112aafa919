@@ -1,0 +1,27 @@
+/*
+ * gui.h
+ *
+ *  Created on: Aug 30, 2025
+ *      Author: joakim-wennergren
+ */
+
+#ifndef INC_GUI_H_
+#define INC_GUI_H_
+
+#include <stdlib.h>
+#include <string.h>
+#include "display.h"
+#include "lvgl.h"
+
+/* --- tweak these --- */
+#define SKY_W PANEL_WIDTH
+#define SKY_H PANEL_HEIGHT
+#define STAR_COUNT 320
+
+lv_obj_t * create_night_sky_canvas(lv_obj_t *parent);
+
+extern CST820_TouchData td;
+
+void initialize_lvgl();
+
+#endif /* INC_GUI_H_ */
